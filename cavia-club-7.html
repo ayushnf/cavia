@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cavia Club is a private, research-led learning institution for families. Education begins with the child, then brings in family, place, people and technology as they are useful.">
+<meta name="theme-color" content="#24356B">
+<title>Cavia Club — Learning begins with a life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CAVIA CLUB — design system
+   Materials: indigo ink on unbleached paper; turmeric for evidence; terracotta for what Cavia believes; moss for what is established.
+   Type: Fraunces (display, optical sizes 9–144) · IBM Plex Sans (text, UI; Devanagari-capable family) · IBM Plex Mono (metadata, figures)
+   Grid: 12 columns · 24px gutter · max 1440 · outer margin clamp(20px,5vw,84px)
+   Spacing: 4 8 12 16 24 32 48 64 96 144 208 · baseline 8
+   ============================================================ */
+:root{
+  --paper:#F4EFE4;--paper-2:#EBE4D4;--paper-3:#E2D9C5;--ink:#1B1F1D;--ink-2:#3A403C;--ink-3:#5E655F;--mist:#8E958E;
+  --indigo:#24356B;--indigo-2:#3A4E8F;--indigo-ink:#1A2650;--night:#121A33;--night-2:#1B2547;
+  --turmeric:#C99334;--terra:#A24A33;--terra-soft:#D98F78;--moss:#5A6A50;--moss-soft:#9BAA8A;
+  --line:rgba(36,53,107,.22);--line-2:rgba(36,53,107,.12);--line-night:rgba(244,239,228,.2);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;--text:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;--s10:144px;--s11:208px;
+  --max:1440px;--margin:clamp(20px,5vw,84px);--gutter:24px;--measure:34em;
+  --ease:cubic-bezier(.22,.61,.24,1);--ease-out:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.55 var(--text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern","liga","calt"}
+/* paper: a faint fibre so flat colour never reads as a screen */
+body::before{content:"";position:fixed;inset:0;z-index:99;pointer-events:none;opacity:.055;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--terra);outline-offset:4px;border-radius:2px}
+::selection{background:var(--indigo);color:var(--paper)}
+img,svg{display:block;max-width:100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--margin);top:-60px;z-index:200;background:var(--indigo);color:var(--paper);padding:10px 14px;font-weight:500}
+.skip:focus{top:12px}
+
+/* ---------- type system ---------- */
+.d1,.d2,.d3,h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;letter-spacing:-.02em;font-variation-settings:"opsz" 144,"SOFT" 40,"WONK" 0}
+.d1{font-size:clamp(2.9rem,7.6vw,8.2rem);line-height:.96;letter-spacing:-.035em;font-weight:340}
+.d2{font-size:clamp(2.2rem,4.6vw,4.6rem);line-height:1.02;letter-spacing:-.03em;font-weight:360}
+.d3{font-size:clamp(1.55rem,2.5vw,2.25rem);line-height:1.12;letter-spacing:-.02em;font-weight:400;font-variation-settings:"opsz" 72,"SOFT" 40,"WONK" 0}
+em.w,.d1 em,.d2 em,.d3 em{font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 60,"WONK" 1;font-weight:340}
+.lead{font-size:clamp(1.15rem,1.55vw,1.35rem);line-height:1.45;color:var(--ink-2);max-width:32em}
+.copy{max-width:var(--measure);color:var(--ink-2)}
+.copy p{margin:0 0 1.1em}
+.copy p:last-child{margin-bottom:0}
+.small{font-size:.875rem;line-height:1.5;color:var(--ink-3)}
+.meta{font:500 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.meta.indigo{color:var(--indigo)}
+.pov{font-family:var(--display);font-variation-settings:"opsz" 36,"SOFT" 30,"WONK" 0;font-size:clamp(1.25rem,1.8vw,1.55rem);line-height:1.3;color:var(--indigo-ink)}
+
+/* ---------- layout ---------- */
+.shell{width:min(var(--max),calc(100% - 2*var(--margin)));margin-inline:auto}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter)}
+.chapter,.night,.plate,.interlude{scroll-margin-top:100px}
+.chapter{padding:clamp(64px,8vw,120px) 0;border-top:1px solid var(--line-2)}
+.chapter-head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s6);align-items:end;margin-bottom:clamp(32px,4.5vw,56px)}
+.chapter-head .marker{grid-column:1/span 2}
+.chapter-head .title{grid-column:3/span 9}
+.chapter-head .title h2{max-width:11em}
+.marker{display:flex;align-items:baseline;gap:12px;color:var(--indigo)}
+.marker .n{font:400 clamp(1.4rem,2vw,1.9rem)/1 var(--display);font-variation-settings:"opsz" 72,"SOFT" 40;letter-spacing:-.02em}
+.marker .t{font:500 .6875rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.two{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s7)}
+.two>.a{grid-column:3/span 5}.two>.b{grid-column:8/span 5}
+.offset{grid-column:3/span 8}
+@media (max-width:1024px){.chapter-head .marker{grid-column:1/-1}.chapter-head .title{grid-column:1/-1}.two>.a{grid-column:1/span 6}.two>.b{grid-column:7/span 6}.offset{grid-column:1/-1}}
+@media (max-width:720px){.two>.a,.two>.b{grid-column:1/-1}}
+/* plates: full-bleed visual moments, numbered like a monograph */
+.plate{margin:clamp(40px,6vw,88px) 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plate .frame{position:relative;overflow:hidden;background:var(--paper-2)}
+.plate .cap{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);padding:14px 0 16px;font-size:.8125rem;line-height:1.5;color:var(--ink-3)}
+.plate .cap b{grid-column:1/span 2;font:500 .6875rem/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--indigo);font-weight:500}
+.plate .cap span{grid-column:3/span 7}
+@media (max-width:720px){.plate .cap b,.plate .cap span{grid-column:1/-1}}
+.plate.night .frame{background:var(--night)}
+
+/* ---------- reveal: one orchestrated entrance per block ---------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.rv.in{opacity:1;transform:none}
+.rv.t1{transition-delay:.08s}.rv.t2{transition-delay:.16s}.rv.t3{transition-delay:.24s}.rv.t4{transition-delay:.32s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- header: a calm bar, a chapter strip that appears once you are reading ---------- */
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-color:var(--line-2)}
+.hd{height:72px;display:flex;align-items:center;justify-content:space-between;gap:var(--s5);transition:height .35s var(--ease)}
+header.scrolled .hd{height:58px}
+.progress{position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--indigo);transition:width .15s linear}
+.wordmark{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-size:1.5rem;letter-spacing:-.03em;font-variation-settings:"opsz" 36,"SOFT" 40;color:var(--indigo-ink)}
+.wordmark small{font:500 .625rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);transform:translateY(-1px)}
+.strip{height:0;opacity:0;overflow:hidden;border-top:1px solid transparent;transition:height .35s var(--ease),opacity .3s,border-color .3s}
+header.chapters .strip{height:42px;opacity:1;border-top-color:var(--line-2)}
+header.sub .strip{display:none}
+.strip-in{position:relative;display:flex;gap:26px;height:42px;align-items:stretch;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth}
+.strip-in::-webkit-scrollbar{display:none}
+.strip-in a{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-size:.8125rem;font-weight:500;color:var(--ink-3);transition:color .2s;flex:0 0 auto}
+.strip-in a span{font:500 .625rem/1 var(--mono);letter-spacing:.1em;color:var(--indigo)}
+.strip-in a:hover,.strip-in a.on{color:var(--ink)}
+.strip-in .ind{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--indigo);transform:translateX(0);transition:transform .45s var(--ease),width .45s var(--ease),opacity .3s;opacity:0}
+.strip-in .ind.on{opacity:1}
+.hd .right{display:flex;align-items:center;gap:var(--s4)}
+.hd .route{font-size:.8125rem;color:var(--ink-3);padding:6px 4px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.hd .route:hover,.hd .route[aria-current="page"]{color:var(--ink);border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 20px;border:1px solid var(--indigo);color:var(--indigo-ink);font-size:.875rem;font-weight:500;transition:background .22s var(--ease),color .22s,border-color .22s;white-space:nowrap}
+.btn:hover{background:var(--indigo);color:var(--paper)}
+.btn.fill{background:var(--indigo);color:var(--paper)}.btn.fill:hover{background:var(--terra);border-color:var(--terra)}
+.btn.small{min-height:38px;padding:0 14px;font-size:.8125rem}
+.btn.paper{border-color:var(--paper);color:var(--paper)}.btn.paper:hover{background:var(--paper);color:var(--indigo-ink)}
+.menu{display:none;width:44px;height:44px;border:1px solid var(--line);place-items:center}
+.menu i,.menu i::before,.menu i::after{content:"";display:block;width:18px;height:1px;background:var(--indigo-ink);position:relative}
+.menu i::before{position:absolute;top:-6px}.menu i::after{position:absolute;top:6px}
+.sheet{display:none}
+@media (max-width:760px){.hd .route,.hd .btn{display:none}.menu{display:grid}
+  .sheet{display:block;position:fixed;inset:72px 0 0 0;z-index:49;overflow:auto;background:var(--paper);padding:var(--s6) var(--margin);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease)}
+  .sheet.open{opacity:1;transform:none;pointer-events:auto}
+  .sheet a{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line-2);font-family:var(--display);font-size:1.5rem;font-variation-settings:"opsz" 36,"SOFT" 40;letter-spacing:-.02em;color:var(--indigo-ink)}
+  .sheet a small{font:500 .625rem/1 var(--mono);letter-spacing:.1em;color:var(--indigo)}
+  .sheet .btn{display:inline-flex;margin-top:var(--s6);border-radius:0;font-family:var(--text);font-size:.9rem;padding:0 22px}}
+/* ---------- pages (routes) ---------- */
+.page{display:none}.page.active{display:block;animation:pg .6s var(--ease-out)}
+@keyframes pg{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page.active{animation:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:calc(100svh - 72px);display:grid;align-items:end;padding:clamp(72px,9vw,120px) 0 clamp(28px,4vw,48px);overflow:hidden}
+.hero .terrain{position:absolute;inset:0;z-index:0}
+.hero .terrain svg{width:100%;height:100%}
+.hero .terrain path{fill:none;stroke:var(--indigo);stroke-width:1;stroke-opacity:.42;vector-effect:non-scaling-stroke}
+.hero .terrain path.deep{stroke-opacity:.72;stroke-width:1.4}
+.hero .terrain path.hatch{stroke:var(--turmeric);stroke-opacity:.6;stroke-width:1}
+.hero .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--paper) 0%,color-mix(in srgb,var(--paper) 80%,transparent) 42%,color-mix(in srgb,var(--paper) 10%,transparent) 78%,transparent 100%);pointer-events:none}
+.hero .veil::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(180deg,transparent,var(--paper))}
+.hero .content{position:relative;z-index:2;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s6)}
+.hero .kicker{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.hero .kicker .meta::before{content:"";display:inline-block;width:22px;height:1px;background:var(--indigo);margin:0 10px 4px 0}
+.hero h1{grid-column:1/span 10;max-width:8.6em}
+.hero .lead{grid-column:1/span 6}
+.hero .actions{grid-column:1/span 6;display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:var(--s2)}
+.hero .plate-note{grid-column:8/span 5;align-self:end;font-size:.8125rem;line-height:1.5;color:var(--ink-3);max-width:24em;border-left:1px solid var(--line);padding-left:14px}
+.hero .plate-note b{display:block;font:500 .6875rem/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--indigo)}
+@media (max-width:1024px){.hero h1{grid-column:1/-1}.hero .lead{grid-column:1/span 8}.hero .actions{grid-column:1/-1}.hero .plate-note{grid-column:1/-1;border:0;padding:0}}
+@media (max-width:720px){.hero{min-height:auto;padding-top:56px}.hero .lead{grid-column:1/-1}}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.75rem;color:var(--ink-3);align-items:center}
+.legend i{display:inline-block;width:26px;height:0;border-top:1.4px solid var(--indigo);margin-right:8px;vertical-align:middle}
+.legend i.thin{border-top-width:1px;opacity:.5}
+.legend i.hatch{border-top:1px dashed var(--turmeric)}
+
+/* ---------- 01 why: two starting points ---------- */
+.cards2{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s5);margin-top:clamp(48px,6vw,80px)}
+.note{grid-column:span 6;background:var(--paper-2);border:1px solid var(--line-2);padding:clamp(22px,3vw,36px);position:relative}
+.note.cavia{background:var(--indigo);color:var(--paper);border-color:var(--indigo)}
+.note .meta{margin-bottom:22px}
+.note.cavia .meta{color:var(--turmeric)}
+.note ol{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+.note li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-family:var(--display);font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.25;font-variation-settings:"opsz" 36,"SOFT" 30;letter-spacing:-.01em}
+.note li span:first-child{font:400 .6875rem/2 var(--mono);color:var(--mist)}
+.note.cavia li span:first-child{color:var(--turmeric)}
+@media (max-width:720px){.note{grid-column:1/-1}}
+
+/* ---------- 02 model: term two ways ---------- */
+.seg{display:inline-flex;border:1px solid var(--line);padding:3px;gap:3px;background:var(--paper)}
+.seg button{padding:8px 14px;font-size:.8125rem;font-weight:500;color:var(--ink-3);transition:background .2s,color .2s}
+.seg button[aria-pressed="true"]{background:var(--indigo);color:var(--paper)}
+.term{padding:clamp(16px,2.4vw,32px) 0 8px}
+.term svg{width:100%;height:auto}
+.term .blk{transition:transform 1s var(--ease),fill .5s}
+.term .blk.ex{fill:var(--terra)}.term .blk.in{fill:var(--indigo)}.term .blk.pr{fill:var(--turmeric)}.term .blk.wk{fill:var(--moss)}
+.term .grid-l{transition:opacity .4s}.term.path .grid-l{opacity:0}
+.term .route{transition:opacity .5s .35s;opacity:0}.term.path .route{opacity:1}
+.term .trail{fill:none;stroke:var(--indigo);stroke-width:1.6}
+.term .trail-ghost{fill:none;stroke:var(--indigo);stroke-width:8;stroke-opacity:.06}
+.term .stn circle{fill:var(--paper);stroke:var(--indigo);stroke-width:1.4}
+.term .stn .num{font-family:var(--mono);font-size:10px;fill:var(--indigo);letter-spacing:.06em}
+.term .stn .name{font-family:var(--display);font-size:16px;fill:var(--ink);letter-spacing:-.01em}
+.term .stn .sub{font-family:var(--mono);font-size:9.5px;fill:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+.term .stn .hrs{font-family:var(--mono);font-size:9.5px;fill:var(--ink-3)}
+.term .glab{font-family:var(--mono);font-size:10px;fill:var(--ink-3);letter-spacing:.05em}
+.term .key{font-family:var(--mono);font-size:9.5px;fill:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:720px){.term .stn .name{font-size:22px}.term .stn .sub,.term .stn .hrs,.term .key,.term .glab{font-size:14px}}
+/* ---------- 03 experience: the week board ---------- */
+.board .frame{background:var(--paper-2)}
+.board-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s6);padding:clamp(20px,3vw,36px) 0;align-items:start}
+.board .starts{grid-column:1/span 3}.board .week-board{grid-column:4/span 9}.board .side{grid-column:4/span 9;display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:var(--gutter);row-gap:22px;padding-top:6px;border-top:1px solid var(--line-2)}
+.startlist{display:grid;gap:8px;margin:12px 0 14px}
+.startlist button{text-align:left;padding:12px 14px;border:1px solid var(--line);background:var(--paper);font-family:var(--display);font-size:1.05rem;line-height:1.25;letter-spacing:-.01em;font-variation-settings:"opsz" 24,"SOFT" 40;color:var(--ink);transition:background .25s,border-color .25s,color .25s}
+.startlist button small{display:block;font:500 .625rem/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);margin-bottom:2px}
+.startlist button[aria-checked="true"]{background:var(--indigo);border-color:var(--indigo);color:var(--paper)}
+.startlist button[aria-checked="true"] small{color:var(--turmeric)}
+.startlist button:hover{border-color:var(--indigo)}
+.week-board{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.day{background:var(--paper);border:1px solid var(--line-2);padding:12px 12px 14px;min-height:190px;display:grid;grid-template-rows:auto auto 1fr auto;gap:8px;transition:transform .5s var(--ease),opacity .5s}
+.day.re{opacity:0;transform:translateY(10px)}
+.day .d{font:500 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.day .kind{display:inline-block;justify-self:start;font:500 .5625rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 7px;color:var(--paper);background:var(--indigo)}
+.day .kind.ex{background:var(--terra)}.day .kind.pr{background:var(--turmeric);color:var(--ink)}.day .kind.wk{background:var(--moss)}.day .kind.ck{background:var(--ink)}.day .kind.q{background:var(--paper);color:var(--indigo);border:1px solid var(--indigo)}
+.day p{margin:0;font-size:.875rem;line-height:1.4;color:var(--ink-2)}
+.day .mins{font:400 .625rem/1.4 var(--mono);color:var(--ink-3);border-top:1px solid var(--line-2);padding-top:6px}
+.spine{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.spine span{font:500 .6875rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1px solid var(--line-2);color:var(--mist);transition:all .35s}
+.spine span.on{border-color:var(--indigo);color:var(--indigo-ink);background:var(--paper)}
+.spine span.deep{background:var(--indigo);border-color:var(--indigo);color:var(--paper)}
+.evid{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.evid li{font-size:.875rem;color:var(--ink-2);padding-left:14px;position:relative}
+.evid li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--turmeric)}
+.small-seg{margin-top:10px}.small-seg button{padding:7px 11px}
+.adapt{margin:12px 0 0;font-size:.875rem;color:var(--ink-2);border-left:2px solid var(--turmeric);padding-left:12px}
+@media (max-width:1100px){.board .starts{grid-column:1/span 4}.board .week-board{grid-column:5/span 8;grid-template-columns:repeat(3,1fr)}.board .side{grid-column:1/-1}}
+@media (max-width:720px){.board .starts,.board .week-board{grid-column:1/-1}.week-board{grid-template-columns:repeat(2,1fr)}.day{min-height:0}.board .side{grid-template-columns:1fr}}
+/* ---------- the note to the parents ---------- */
+.letter{max-width:34rem;background:var(--paper);border:1px solid var(--line);padding:clamp(20px,2.4vw,30px);font-size:.9375rem;line-height:1.55;color:var(--ink-2);box-shadow:0 1px 0 var(--paper-3),0 14px 40px -20px rgba(27,31,29,.25)}
+.letter .meta{margin-bottom:14px;display:flex;justify-content:space-between}
+.letter p{margin:0 0 .9em}
+.letter .conf{display:flex;gap:16px;margin-top:16px;padding-top:12px;border-top:1px solid var(--line-2);font:400 .6875rem/1.5 var(--mono);letter-spacing:.04em;color:var(--ink-3)}
+.letter .conf i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.d4{font-family:var(--display);font-size:clamp(1.25rem,1.7vw,1.5rem);line-height:1.25;font-weight:420;font-variation-settings:"opsz" 36,"SOFT" 30,"WONK" 0;letter-spacing:-.01em}
+/* ---------- 04 system: the loop (traverse) ---------- */
+.loop{margin-top:clamp(40px,5vw,72px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter)}
+.loop .stage{grid-column:1/span 6;position:sticky;top:88px;height:calc(100svh - 110px);display:grid;align-items:center}
+.loop .stage svg{width:100%;max-height:100%;height:auto}
+.loop .steps{grid-column:8/span 5;padding:6vh 0 18vh}
+.loop .step{min-height:36vh;display:grid;align-content:center;gap:12px;opacity:.28;transition:opacity .5s}
+.loop .step.on{opacity:1}
+.loop .step .k{font:500 .6875rem/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--indigo)}
+.loop .step h3{font-size:clamp(1.6rem,2.6vw,2.4rem);font-variation-settings:"opsz" 72,"SOFT" 40;line-height:1.08}
+.loop .step p{margin:0;max-width:26em;color:var(--ink-2)}
+.trav .ring{fill:none;stroke:var(--line);stroke-width:1}
+.trav .edge{fill:none;stroke:var(--indigo);stroke-width:1.3;stroke-dasharray:3 4;opacity:.45;transition:opacity .4s,stroke-dasharray .4s}
+.trav .edge.on{opacity:1;stroke-dasharray:none;stroke-width:1.6}
+.trav .st circle{fill:var(--paper);stroke:var(--indigo);stroke-width:1.2;transition:fill .35s,r .35s}
+.trav .st.on circle{fill:var(--indigo)}
+.trav .st.done circle{fill:var(--indigo-2)}
+.trav .st .g{stroke:var(--indigo);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.trav .st.on .g,.trav .st.done .g{stroke:var(--paper)}
+.trav .st text{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;fill:var(--ink-3);transition:fill .35s}
+.trav .st.on text{fill:var(--indigo-ink);font-weight:500}
+.trav .centre{font-family:var(--display);font-size:22px;fill:var(--indigo-ink);letter-spacing:-.02em}
+.trav .centre.sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;fill:var(--ink-3)}
+.trav .st{cursor:pointer}
+@media (max-width:900px){.loop .stage{grid-column:1/-1;position:relative;top:auto;height:auto;margin-bottom:var(--s6)}.loop .steps{grid-column:1/-1;padding:0}.loop .step{min-height:0;padding:20px 0;opacity:1;border-top:1px solid var(--line-2)}}
+
+/* ---------- 04 system: learner state over time ---------- */
+.state{margin-top:clamp(48px,6vw,88px)}
+.state .frame{position:relative;background:var(--paper-2);border:1px solid var(--line);overflow:hidden}
+.state svg{width:100%;height:auto;display:block}
+.state path{fill:none;vector-effect:non-scaling-stroke;stroke:var(--indigo)}
+.state .c1{stroke-width:1;stroke-opacity:.45}.state .c2{stroke-width:1.5;stroke-opacity:.85}
+.state .hatch{stroke:var(--turmeric);stroke-width:1;stroke-opacity:.75}
+.state .lbl{position:absolute;font:500 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--indigo);background:color-mix(in srgb,var(--paper-2) 78%,transparent);padding:4px 7px;border:1px solid var(--line-2);transition:opacity .4s,transform .8s var(--ease)}
+.state .lbl.u{color:var(--terra)}
+.state .ctl{display:grid;grid-template-columns:3fr 6fr 3fr;column-gap:var(--gutter);row-gap:18px;align-items:start;padding:20px 0 6px}
+.state .readout{display:grid;gap:4px}
+.state .readout b{font:500 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--indigo)}
+.state .readout span{font-family:var(--display);font-size:1.7rem;line-height:1;font-variation-settings:"opsz" 48,"SOFT" 40;letter-spacing:-.02em}
+.state .readout em{font-style:normal;font-size:.85rem;color:var(--ink-3);line-height:1.4;max-width:22em}
+.state .timeline{position:relative;padding:8px 0 44px}
+.state .moments{position:absolute;left:0;right:0;top:34px;height:30px}
+.state .moments button{position:absolute;transform:translateX(-50%);font:500 .625rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:10px 4px 0;white-space:nowrap;transition:color .2s}
+.state .moments button i{position:absolute;left:50%;top:0;width:1px;height:7px;background:var(--line)}
+.state .moments button:hover,.state .moments button.on{color:var(--indigo-ink)}
+.state .moments button.on i{background:var(--indigo)}
+.state .moments button:first-child{transform:none;padding-left:0}.state .moments button:first-child i{left:0}
+.state .moments button:last-child{transform:translateX(-100%);padding-right:0}.state .moments button:last-child i{left:auto;right:0}
+input[type=range].rng{-webkit-appearance:none;appearance:none;width:100%;height:24px;background:transparent;margin:0;position:relative;z-index:2;display:block}
+input[type=range].rng::-webkit-slider-runnable-track{height:1px;background:var(--indigo)}
+input[type=range].rng::-moz-range-track{height:1px;background:var(--indigo)}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--paper);border:1.5px solid var(--indigo);margin-top:-8.5px;cursor:pointer;box-shadow:0 0 0 4px var(--paper-2)}
+input[type=range].rng::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--paper);border:1.5px solid var(--indigo);cursor:pointer}
+input[type=range].rng:focus-visible{outline:none}
+input[type=range].rng:focus-visible::-webkit-slider-thumb{outline:2px solid var(--terra);outline-offset:3px}
+.state .moments button:nth-child(even){padding-top:26px}.state .moments button:nth-child(even) i{height:23px}
+.state .actions{display:grid;gap:14px;justify-items:end}
+.state .actions .legend{justify-content:flex-end}
+.state .ctl .ticks{display:flex;justify-content:space-between;font:400 .625rem/1 var(--mono);color:var(--ink-3);margin-top:-6px}
+@media (max-width:900px){.state .ctl{grid-template-columns:1fr}.state .actions{justify-items:start}.state .actions .legend{justify-content:flex-start}}
+
+.principles{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s6);margin-top:clamp(40px,5vw,64px)}
+.principles .p{grid-column:span 4}
+.principles .p h3{font-size:clamp(1.3rem,1.8vw,1.6rem);font-variation-settings:"opsz" 48,"SOFT" 40;margin-bottom:10px}
+.principles .p p{margin:0;color:var(--ink-3);font-size:.95rem;max-width:24em}
+.principles .p .meta{margin-bottom:12px}
+@media (max-width:900px){.principles .p{grid-column:span 6}}
+@media (max-width:600px){.principles .p{grid-column:1/-1}}
+
+/* ---------- the layer beneath: strata ---------- */
+.strata-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s5);padding:clamp(18px,2.6vw,32px) 0;align-items:center}
+.strata svg{grid-column:1/span 7;width:100%;height:auto}
+.strata .pane{grid-column:9/span 4}
+.strata .pane .d4{margin:8px 0 10px}
+.strata .pane p{color:var(--ink-2);font-size:.95rem;margin:0}
+.strata .pane ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.strata .pane li{font-size:.875rem;color:var(--ink-3);padding-left:16px;position:relative}
+.strata .pane li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--indigo)}
+.strata .band{cursor:pointer}
+.strata .band path.fill{transition:fill .35s,opacity .35s}
+.strata .band text{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;fill:var(--ink-3);pointer-events:none;transition:fill .3s}
+.strata .band text.nm{font-family:var(--display);font-size:16px;letter-spacing:-.01em;text-transform:none;fill:var(--ink)}
+.strata .band.on text.nm{fill:var(--paper)}.strata .band.on text{fill:rgba(244,239,228,.75)}
+.strata .band.dim path.fill{opacity:.55}
+.strata .core{stroke:var(--turmeric);stroke-dasharray:3 4;fill:none}
+.strata .band:focus-visible{outline:none}.strata .band:focus-visible path.fill{stroke:var(--terra);stroke-width:2}
+@media (max-width:900px){.strata svg,.strata .pane{grid-column:1/-1}}
+@media (max-width:720px){.strata .band text{font-size:14px}.strata .band text.nm{font-size:24px}}
+/* ---------- 05 research: register ---------- */
+.night{background:var(--night);color:var(--paper)}
+.night .chapter{border-top-color:transparent}
+.night .marker{color:var(--turmeric)}
+.night .copy,.night .lead{color:rgba(244,239,228,.82)}
+.night .small,.night .meta{color:rgba(244,239,228,.62)}
+.disciplines{display:flex;flex-wrap:wrap;gap:10px 0;margin:clamp(28px,4vw,48px) 0 0;padding:0;list-style:none}
+.disciplines li{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,2.2rem);font-variation-settings:"opsz" 72,"SOFT" 40;letter-spacing:-.02em;line-height:1.1;color:var(--paper)}
+.disciplines li::after{content:"·";margin:0 .45em;color:var(--turmeric)}
+.disciplines li:last-child::after{content:""}
+.register{margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--line-night)}
+.register .rrow{display:grid;grid-template-columns:2fr 5fr 5fr;column-gap:var(--gutter);padding:24px 0;border-bottom:1px solid var(--line-night);align-items:start}
+.register .rrow .k{display:flex;gap:10px;align-items:center;font:500 .6875rem/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.register .rrow .k i{display:inline-block;width:10px;height:10px;border-radius:50%}
+.register .k.est{color:var(--moss-soft)}.register .k.est i{background:var(--moss-soft)}
+.register .k.bel{color:var(--terra-soft)}.register .k.bel i{background:var(--terra-soft)}
+.register .k.exp{color:var(--turmeric)}.register .k.exp i{border:1.5px dashed var(--turmeric)}
+.register h3{font-size:clamp(1.25rem,1.8vw,1.6rem);font-variation-settings:"opsz" 48,"SOFT" 40;line-height:1.15;color:var(--paper)}
+.register p{margin:0;color:rgba(244,239,228,.7);font-size:.95rem}
+@media (max-width:860px){.register .rrow{grid-template-columns:1fr;row-gap:8px}}
+.reading{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s5)}
+.reading .h{grid-column:1/span 3}.reading ol{grid-column:4/span 9;margin:0;padding:0;list-style:none;columns:2;column-gap:var(--gutter)}
+.reading li{break-inside:avoid;font-size:.875rem;line-height:1.5;color:rgba(244,239,228,.75);padding:10px 0;border-top:1px solid var(--line-night)}
+.reading li a{color:var(--paper);border-bottom:1px solid rgba(244,239,228,.35)}
+.reading li a:hover{border-color:var(--turmeric);color:var(--turmeric)}
+@media (max-width:860px){.reading .h,.reading ol{grid-column:1/-1}.reading ol{columns:1}}
+
+/* ---------- 06 community: constellation ---------- */
+.cons{margin-top:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s6);align-items:start}
+.cons .fig{grid-column:1/span 8}.cons .txt{grid-column:9/span 4;padding-top:10px}
+.cons svg{width:100%;height:auto;background:var(--paper-2);border:1px solid var(--line-2)}
+.cons .orbit{fill:none;stroke:var(--line);stroke-dasharray:2 5}
+.cons .ring{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;fill:var(--ink-3)}
+.cons .node{opacity:0;transition:opacity .7s var(--ease-out)}
+.cons.in .node{opacity:1}
+.cons .lead{fill:none;stroke:var(--indigo);stroke-width:.8;stroke-opacity:.45;stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 1.4s var(--ease-out)}
+.cons.in .lead{stroke-dashoffset:0}
+.cons .node text{font-family:var(--text);font-size:12.5px;font-weight:500;fill:var(--ink)}
+.cons .node text.k,.cons text.k{font-family:var(--mono);font-size:9px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;fill:var(--ink-3)}
+.cons .pin{fill:var(--indigo)}
+.cons .place{fill:none;stroke:var(--moss);stroke-width:1.3}
+.cons .exp{fill:var(--turmeric)}
+.cons .tech{fill:none;stroke:var(--indigo);stroke-dasharray:2 2}
+.cons .child{fill:var(--terra)}
+.cons .child-lbl{font-family:var(--display);font-size:15px;fill:var(--ink);letter-spacing:-.01em;font-style:italic}
+.cons .txt .looking{margin-top:22px;padding-top:18px;border-top:1px solid var(--line-2)}
+.cons .txt .looking p{margin:10px 0 0;color:var(--ink-2);font-size:.95rem}
+@media (max-width:900px){.cons .fig,.cons .txt{grid-column:1/-1}}
+@media (max-width:720px){.cons .node text{font-size:19px}.cons .node text.k,.cons text.k,.cons .ring{font-size:13px}.cons .child-lbl{font-size:22px}}
+/* ---------- 07 invitation, in burgundy ---------- */
+:root{--wine:#4A1626;--wine-2:#5C1E31;--wine-line:rgba(244,239,228,.18)}
+.wine{background:var(--wine);color:var(--paper);background-image:radial-gradient(120% 90% at 85% 10%,var(--wine-2),transparent 60%);border-top:0}
+.wine .marker{color:var(--turmeric)}
+.wine .copy,.wine .lead{color:rgba(244,239,228,.84)}
+.wine .small{color:rgba(244,239,228,.62)}
+.wine .field label{color:var(--turmeric)}
+.wine .field input,.wine .field select,.wine .field textarea{color:var(--paper);border-bottom-color:rgba(244,239,228,.35)}
+.wine .field input:focus,.wine .field select:focus,.wine .field textarea:focus{border-bottom-color:var(--turmeric)}
+.wine .field input::placeholder,.wine .field textarea::placeholder{color:rgba(244,239,228,.4)}
+.wine .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M2 5l5 5 5-5' fill='none' stroke='%23F4EFE4' stroke-width='1.3'/%3E%3C/svg%3E")}
+.wine .field select option{color:var(--ink)}
+.wine .field,.wine .consent,.wine .form-foot{border-top-color:rgba(244,239,228,.18)}
+.wine .consent{color:rgba(244,239,228,.7)}.wine .consent input{accent-color:var(--turmeric)}
+.wine .btn.fill{background:var(--turmeric);border-color:var(--turmeric);color:var(--ink)}.wine .btn.fill:hover{background:var(--paper);border-color:var(--paper);color:var(--wine)}
+.wine .sent{border-color:var(--turmeric);background:rgba(0,0,0,.14)}
+.wine .sent .meta{color:var(--turmeric)}
+.wine ::selection{background:var(--turmeric);color:var(--ink)}
+.hd .btn.fill,.hero .btn.fill,.sheet .btn.fill{background:var(--wine);border-color:var(--wine)}
+.hd .btn.fill:hover,.hero .btn.fill:hover{background:var(--turmeric);border-color:var(--turmeric);color:var(--ink)}
+/* ---------- 07 invitation ---------- */
+.invite{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s7);margin-top:clamp(40px,5vw,72px)}
+.invite .l{grid-column:1/span 5}.invite form{grid-column:7/span 6}
+.field{display:grid;gap:8px;padding:18px 0;border-top:1px solid var(--line-2)}
+.field label{font:500 .6875rem/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--indigo)}
+.field input,.field select,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);padding:8px 0;font-family:var(--display);font-size:1.35rem;font-variation-settings:"opsz" 36,"SOFT" 30;letter-spacing:-.01em;color:var(--ink);border-radius:0;transition:border-color .2s}
+.field textarea{font-family:var(--text);font-size:1.0625rem;line-height:1.5;resize:vertical;min-height:110px}
+.field select{-webkit-appearance:none;appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M2 5l5 5 5-5' fill='none' stroke='%2324356B' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right center}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--indigo)}
+.field input::placeholder,.field textarea::placeholder{color:var(--mist)}
+.field.grid2{grid-template-columns:1fr 1fr;column-gap:var(--gutter)}
+.field.grid2 label{grid-column:span 1}
+.consent{display:flex;gap:12px;align-items:flex-start;padding:18px 0;border-top:1px solid var(--line-2);font-size:.875rem;color:var(--ink-3)}
+.consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--indigo)}
+.form-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding-top:22px;border-top:1px solid var(--line)}
+.sent{display:none;padding:clamp(28px,4vw,44px);border:1px solid var(--indigo);background:var(--paper-2)}
+form.done .fields,form.done .form-foot{display:none}
+form.done .sent{display:block}
+@media (max-width:900px){.invite .l,.invite form{grid-column:1/-1}}
+
+/* ---------- secondary pages ---------- */
+.pagehead{padding:clamp(72px,10vw,150px) 0 clamp(48px,7vw,96px)}
+.pagehead h1{max-width:10em;margin-top:18px}
+.pagehead .lead{margin-top:28px}
+.band{padding:clamp(56px,8vw,120px) 0;border-top:1px solid var(--line-2)}
+.ledger{border-top:1px solid var(--line)}
+.ledger .row{display:grid;grid-template-columns:2fr 5fr 5fr;column-gap:var(--gutter);padding:22px 0;border-bottom:1px solid var(--line-2);align-items:start}
+.ledger .row .k{display:flex;gap:10px;align-items:center;font:500 .6875rem/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.ledger .k i{display:inline-block;width:10px;height:10px;border-radius:50%}
+.ledger .k.est{color:var(--moss)}.ledger .k.est i{background:var(--moss)}
+.ledger .k.bel{color:var(--terra)}.ledger .k.bel i{background:var(--terra)}
+.ledger .k.exp{color:var(--indigo)}.ledger .k.exp i{border:1.5px dashed var(--indigo)}
+.ledger h3{font-size:clamp(1.2rem,1.7vw,1.5rem);font-variation-settings:"opsz" 48,"SOFT" 40;line-height:1.15}
+.ledger p{margin:0;color:var(--ink-3);font-size:.95rem}
+@media (max-width:860px){.ledger .row{grid-template-columns:1fr;row-gap:8px}}
+.agenda{margin:0;padding:0;list-style:none;counter-reset:q;border-top:1px solid var(--line)}
+.agenda li{counter-increment:q;display:grid;grid-template-columns:48px 1fr;gap:var(--s4);padding:20px 0;border-bottom:1px solid var(--line-2);font-family:var(--display);font-size:clamp(1.15rem,1.7vw,1.5rem);font-variation-settings:"opsz" 36,"SOFT" 30;line-height:1.3;letter-spacing:-.01em}
+.agenda li::before{content:counter(q,decimal-leading-zero);font:400 .75rem/2.4 var(--mono);color:var(--indigo);letter-spacing:.06em}
+.steps4{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s6);margin-top:clamp(40px,5vw,64px)}
+.steps4 .s{grid-column:span 3;border-top:1px solid var(--line);padding-top:16px}
+.steps4 .s .meta{margin-bottom:10px}
+.steps4 .s h3{font-size:1.35rem;font-variation-settings:"opsz" 36,"SOFT" 40;margin-bottom:8px}
+.steps4 .s p{margin:0;color:var(--ink-3);font-size:.925rem}
+@media (max-width:900px){.steps4 .s{grid-column:span 6}}
+@media (max-width:560px){.steps4 .s{grid-column:1/-1}}
+.boundary{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:var(--s5)}
+.boundary .h{grid-column:1/span 4}.boundary ol{grid-column:5/span 8;margin:0;padding:0;list-style:none}
+.boundary li{padding:14px 0;border-top:1px solid var(--line-2);display:grid;grid-template-columns:28px 1fr;gap:12px;font-family:var(--display);font-size:clamp(1.1rem,1.5vw,1.3rem);font-variation-settings:"opsz" 36,"SOFT" 30;line-height:1.3}
+.boundary li span{font:400 .6875rem/2 var(--mono);color:var(--indigo)}
+@media (max-width:860px){.boundary .h,.boundary ol{grid-column:1/-1}}
+.autism .marker,.autism .meta.indigo,.autism .field label{color:var(--moss)}
+.free{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 12px;border:1px solid var(--moss);color:var(--moss);font:500 .6875rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.free i{width:7px;height:7px;border-radius:50%;background:var(--moss)}
+
+/* ---------- footer ---------- */
+footer{background:var(--indigo-ink);color:var(--paper);padding:clamp(56px,7vw,96px) 0 32px}
+footer .grid{row-gap:var(--s7)}
+footer .f1{grid-column:1/span 5}footer .f2{grid-column:7/span 3}footer .f3{grid-column:10/span 3}
+footer .f1 .wordmark{color:var(--paper);font-size:1.8rem}
+footer .f1 .wordmark small{color:var(--turmeric)}
+footer .f1 p{margin:18px 0 0;max-width:26em;color:rgba(244,239,228,.72);font-family:var(--display);font-size:1.25rem;font-variation-settings:"opsz" 36,"SOFT" 40;line-height:1.3;letter-spacing:-.01em}
+footer h4{margin:0 0 12px;font:500 .6875rem/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--turmeric)}
+footer ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+footer li a{color:rgba(244,239,228,.85);border-bottom:1px solid transparent;transition:border-color .2s}
+footer li a:hover{border-color:var(--paper)}
+footer .base{margin-top:clamp(40px,5vw,64px);padding-top:18px;border-top:1px solid var(--line-night);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.8125rem;color:rgba(244,239,228,.55)}
+@media (max-width:860px){footer .f1,footer .f2,footer .f3{grid-column:1/-1}}
+/* generated plates: text sizes for small screens (viewBox-scaled) */
+@media (max-width:720px){.state .lbl{font-size:.5625rem;padding:3px 5px;white-space:nowrap}#lblC{left:auto!important;right:8px;transform:translate(0,-50%)!important}.term .glab{display:none}.trav .st text{font-size:15px}.trav .centre{font-size:30px}.trav .centre.sub{font-size:14px}}
+
+/* ================= mobile: first-class, not stacked ================= */
+@media (max-width:720px){
+  /* hero: the terrain sits behind the words, not through them */
+  .hero .veil{background:linear-gradient(180deg,var(--paper) 0%,color-mix(in srgb,var(--paper) 86%,transparent) 55%,color-mix(in srgb,var(--paper) 55%,transparent) 100%)}
+  .hero .veil::after{display:none}
+  .hero .terrain path{stroke-opacity:.3}.hero .terrain path.deep{stroke-opacity:.5}.hero .terrain path.hatch{stroke-opacity:.35}
+  .hero .kicker{gap:6px 14px}
+  /* wide plates scroll sideways instead of shrinking to nothing */
+  .scrollplate{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:8px}
+  .scrollplate>svg{min-width:760px}
+  .scroll-hint{display:block!important;font:500 .625rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:8px 0 0}
+  /* the week board becomes a swipeable strip of days */
+  .week-board{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .day{flex:0 0 232px;scroll-snap-align:start;min-height:0}
+  .board .side{grid-template-columns:1fr;gap:18px}
+  .small-seg button{padding:10px 14px}
+  /* the learner-state moments become tappable chips */
+  .state .timeline{padding:8px 0 0}
+  .state .moments{position:static;height:auto;display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .state .moments button,.state .moments button:first-child,.state .moments button:last-child{position:static;transform:none;padding:9px 10px;border:1px solid var(--line-2);background:var(--paper);font-size:.625rem}
+  .state .moments button i{display:none}
+  .state .moments button.on{border-color:var(--indigo);color:var(--indigo-ink)}
+  .state .ctl{padding-top:16px}
+  input[type=range].rng{height:36px}
+  input[type=range].rng::-webkit-slider-thumb{width:22px;height:22px;margin-top:-10.5px}
+  .plate-cap b{display:block;margin-bottom:4px}
+  /* comfortable targets */
+  .consent input{width:20px;height:20px}
+  footer li a{display:inline-block;padding:6px 0}
+  .btn{min-height:48px}
+  .commit .row{padding:16px 0}
+  .register .rrow{padding:18px 0}
+  .loop .steps{padding-bottom:8px}
+}
+@media (max-width:420px){.d1{font-size:2.7rem}.d2{font-size:2.05rem}}
+.scroll-hint{display:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header id="header">
+  <div class="shell hd">
+    <a class="wordmark" href="#cavia" data-route="cavia" aria-label="Cavia Club, home">Cavia <small>Club</small></a>
+    <div class="right">
+      <a class="route" href="#research" data-route="research">Research</a>
+      <a class="route" href="#autism" data-route="autism">For autistic learners</a>
+      <a class="btn fill small" href="#invitation">Request an invitation</a>
+      <button class="menu" id="menu" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><i></i></button>
+    </div>
+  </div>
+  <nav class="strip" id="strip" aria-label="Chapters">
+    <div class="shell"><div class="strip-in" id="stripIn">
+      <a href="#why"><span>01</span>Why</a><a href="#model"><span>02</span>A different model</a><a href="#experience"><span>03</span>The experience</a><a href="#system"><span>04</span>The system</a><a href="#research-ch"><span>05</span>The research</a><a href="#community"><span>06</span>The community</a><a href="#invitation"><span>07</span>The invitation</a>
+      <i class="ind" id="ind" aria-hidden="true"></i>
+    </div></div>
+  </nav>
+  <i class="progress" id="progress" aria-hidden="true"></i>
+</header>
+  <nav class="sheet" id="sheet" aria-label="Menu">
+    <a href="#why"><span>Why</span><small>01</small></a><a href="#model"><span>A different model</span><small>02</small></a><a href="#experience"><span>The experience</span><small>03</small></a><a href="#system"><span>The system</span><small>04</small></a><a href="#research-ch"><span>The research</span><small>05</small></a><a href="#community"><span>The community</span><small>06</small></a><a href="#invitation"><span>The invitation</span><small>07</small></a>
+    <a href="#research" data-route="research"><span>Research</span><small>Register</small></a><a href="#autism" data-route="autism"><span>For autistic learners</span><small>Free</small></a>
+    <a class="btn fill" href="#invitation">Request an invitation</a>
+  </nav>
+
+<main id="main">
+<!-- ============================ HOME ============================ -->
+<article class="page active" data-page="cavia" id="p-cavia">
+  <section class="hero" aria-labelledby="h1">
+    <div class="terrain" id="terrain" aria-hidden="true"></div>
+    <div class="veil"></div>
+    <div class="shell content">
+      <div class="kicker rv"><span class="meta indigo">A private learning institution for families</span><span class="meta">By invitation · ages four to twelve</span></div>
+      <h1 class="d1 rv t1" id="h1">A child is not a <em>curriculum</em> waiting to happen.</h1>
+      <p class="lead rv t2">Cavia is a small learning community for families. It starts with one child: what they can already do, what they care about, what they need next. Then it builds the education around that, using family, places, people and technology where they help.</p>
+      <div class="actions rv t3"><a class="btn fill" href="#invitation">Request an invitation</a><a class="btn" href="#why">Read how it works</a></div>
+      <p class="plate-note rv t4"><b>Plate I</b>The terrain of one child's learning, drawn from evidence gathered over fourteen weeks. Contours mark what is secure. Hatching marks what is not yet known.</p>
+    </div>
+  </section>
+
+  <!-- 01 WHY -->
+  <section class="chapter" id="why" aria-labelledby="t-why">
+    <div class="shell">
+      <div class="chapter-head">
+        <div class="marker rv"><span class="n">01</span><span class="t">Why</span></div>
+        <div class="title"><h2 class="d2 rv t1" id="t-why">Most education starts with the material. The child is asked to fit.</h2></div>
+      </div>
+      <div class="two">
+        <div class="a copy rv">
+          <p>A syllabus is written years before it meets a particular child. It cannot know that she reads three years ahead and still counts on her fingers, or that he will concentrate for an hour on anything that involves the lake. So the system is organised around what can be scheduled, and the child adapts to it. Or doesn't.</p>
+          <p>Most of what is sold as personalisation keeps this order and changes the surface: the same content, served faster, with more colours.</p>
+        </div>
+        <div class="b rv t1">
+          <p class="pov">We think the order should be reversed. Understand the learner first. Then decide what to teach, where, with whom, and how you will know it worked.</p>
+        </div>
+      </div>
+      <div class="cards2">
+        <div class="note rv"><div class="meta">The usual starting point</div><ol><li><span>a</span><span>What lesson should the child do today?</span></li><li><span>b</span><span>Which resource should we use?</span></li><li><span>c</span><span>Is the child on grade level?</span></li></ol></div>
+        <div class="note cavia rv t1"><div class="meta">Cavia's starting point</div><ol><li><span>a</span><span>What should move forward for this child, now?</span></li><li><span>b</span><span>What experience, place or person would make that worth doing?</span></li><li><span>c</span><span>Which capabilities are secure, developing, or not yet known?</span></li></ol></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 A DIFFERENT MODEL -->
+  <section class="chapter" id="model" aria-labelledby="t-model">
+    <div class="shell">
+      <div class="chapter-head">
+        <div class="marker rv"><span class="n">02</span><span class="t">A different model</span></div>
+        <div class="title"><h2 class="d2 rv t1" id="t-model">Not less rigour. <em>A different route</em> to it.</h2></div>
+      </div>
+      <div class="two">
+        <div class="a copy rv">
+          <p>Cavia keeps a stable spine: reading and writing, mathematics, science, thinking, making, the body, other people. Every child covers all of it, and it is checked for gaps.</p>
+          <p>What changes is the route. Goals are chosen for this child now. The context is chosen before the material. The plan is revised when evidence arrives, not when the calendar says so. A week has a rhythm rather than a timetable.</p>
+        </div>
+        <div class="b rv t1">
+          <p class="pov">Same destination. The road is drawn around the child, and redrawn as the child changes.</p>
+        </div>
+      </div>
+      <div class="plate">
+        <div class="frame">
+          <div class="shell" style="padding:clamp(22px,3vw,40px) 0 0;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
+            <div class="seg" role="group" aria-label="Show the term as">
+              <button type="button" id="segA" aria-pressed="true">A term as a timetable</button>
+              <button type="button" id="segB" aria-pressed="false">The same term as a pathway</button>
+            </div>
+            <span class="small" id="termNote">Forty identical periods. The same sequence for every child.</span>
+          </div>
+          <div class="shell term scrollplate" id="term"></div>
+          <div class="shell"><p class="scroll-hint">Scroll sideways to follow the route</p></div>
+        </div>
+        <div class="shell cap"><b>Plate II</b><span>One term, two ways. The blocks are the same hours. In a pathway they attach to places and people, are checked against the same spine, and lead somewhere the child cares about arriving.</span></div>
+      </div>
+      <div class="commit">
+        <div class="row rv"><div class="k">Commitment one</div><h3>Meaning before material</h3><p>Start with a real question, need or context. Choose content because it helps the child do something that matters to them.</p></div>
+        <div class="row rv"><div class="k">Commitment two</div><h3>Evidence before assumption</h3><p>Use the child's work, what adults observe, and what the child says. No fixed learning styles, no personality types, no labels used to predict who a child is.</p></div>
+        <div class="row rv"><div class="k">Commitment three</div><h3>Change the environment before labelling the child</h3><p>When progress stalls, alter the task, the scaffold, the setting or the support first. Trait explanations come last, if at all.</p></div>
+        <div class="row rv"><div class="k">Commitment four</div><h3>Care before automation</h3><p>Technology holds complexity. It does not replace judgement, a relationship, or a good day outside.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 THE EXPERIENCE -->
+  <section class="chapter" id="experience" aria-labelledby="t-exp">
+    <div class="shell">
+      <div class="chapter-head">
+        <div class="marker rv"><span class="n">03</span><span class="t">The experience</span></div>
+        <div class="title"><h2 class="d2 rv t1" id="t-exp">What a <em>week</em> looks like.</h2></div>
+      </div>
+      <div class="two">
+        <div class="a copy rv"><p>Cavia is not a screen a child sits in front of. A week starts from something the child actually asked or wanted, and is planned backwards from there: where to go, who to ask, what has to be taught directly, what needs practice, what the child will make, and how we will know it worked.</p></div>
+        <div class="b rv t1"><p class="pov">Start with the question. Plan the week around it. Check, then adjust.</p></div>
+      </div>
+      <div class="plate board rv" id="board">
+        <div class="frame"><div class="shell board-grid">
+          <div class="starts">
+            <div class="meta indigo">Start from</div>
+            <div class="startlist" role="radiogroup" aria-label="A starting point for the week" id="starts"></div>
+            <p class="small">Three real starting points. Choose one and the week is planned around it.</p>
+          </div>
+          <div class="week-board" id="weekBoard" aria-live="polite"></div>
+          <div class="side">
+            <div><div class="meta indigo">The spine this week touches</div><div class="spine" id="spine"></div></div>
+            <div><div class="meta indigo">Evidence we expect</div><ul class="evid" id="evid"></ul></div>
+            <div><div class="meta indigo">After Saturday's check</div><div class="seg small-seg" role="group" aria-label="What the check showed"><button type="button" id="okLanded" aria-pressed="true">It landed</button><button type="button" id="okNot" aria-pressed="false">Not yet</button></div><p class="adapt" id="adapt"></p></div>
+          </div>
+        </div></div>
+        <div class="shell cap"><b>Plate III</b><span>A week, planned from a question. Choose a different starting point and the week is rebuilt. Say what the check showed and next week adapts. The same spine is checked every time, so following a child's interest never quietly opens a gap.</span></div>
+      </div>
+      <div class="two" style="margin-top:clamp(40px,5vw,64px)">
+        <div class="a rv"><div class="meta indigo">What the family receives at the end of the week</div>
+          <aside class="letter" aria-label="An example note to the parents" style="margin-top:14px">
+            <div class="meta"><span>Note to the parents</span><span>Saturday</span></div>
+            <p>Reading: secure, and ahead. Measurement and scale: developing. The map was the first time a ratio was used without a prompt; we have marked that as one piece of evidence, not a conclusion.</p>
+            <p>Something new appeared in the writing: a paragraph that argues. We would protect that. Keep the thread one more week.</p>
+            <p>We are still unsure about stamina for revision. One short check next week will tell us more than a long one would now.</p>
+            <div class="conf"><span><i style="background:var(--moss)"></i>secure</span><span><i style="background:var(--turmeric)"></i>developing</span><span><i style="border:1.3px dashed var(--terra)"></i>uncertain</span></div>
+          </aside>
+        </div>
+        <div class="b copy rv t1" style="align-self:end"><p>The note is written like a colleague, not a dashboard. It says what is secure, what is developing, what is still unknown, and what it would do next. Parents can disagree with it, and often should.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 THE SYSTEM -->
+  <section class="chapter" id="system" aria-labelledby="t-sys">
+    <div class="shell">
+      <div class="chapter-head">
+        <div class="marker rv"><span class="n">04</span><span class="t">The system</span></div>
+        <div class="title"><h2 class="d2 rv t1" id="t-sys">How Cavia understands a learner, and <em>adapts.</em></h2></div>
+      </div>
+      <div class="two">
+        <div class="a copy rv"><p>Underneath every week is one loop. It runs for every goal, from an afternoon to a year, and the family can see each turn of it. Follow it around.</p></div>
+        <div class="b rv t1"><p class="pov">The loop, not the lesson, is the product.</p></div>
+      </div>
+      <div class="loop" id="loop">
+        <div class="stage" aria-hidden="true"><svg class="trav" id="trav" viewBox="0 0 640 640"></svg></div>
+        <div class="steps" id="steps">
+          <div class="step on" data-i="0"><div class="k">Station 1 · Learner</div><h3>What is known, uncertain and changing about this child.</h3><p>Not a profile. A living record of knowledge, skills, strategies, motivation, agency and wellbeing, each with its evidence and its confidence attached.</p></div>
+          <div class="step" data-i="1"><div class="k">Station 2 · Context</div><h3>The family's values, routines, places and people.</h3><p>Where the child lives, what the family cares about, who is nearby, what a workable week looks like. Context is modelled, not assumed.</p></div>
+          <div class="step" data-i="2"><div class="k">Station 3 · Goal</div><h3>One thing that should move forward now.</h3><p>Chosen against a stable map of capabilities so that following curiosity never quietly opens a gap.</p></div>
+          <div class="step" data-i="3"><div class="k">Station 4 · Pathway</div><h3>A route through experiences, instruction and practice.</h3><p>The lake, the map, twelve minutes of direct teaching, ten minutes of practice. Sequenced for this child, with the expected evidence defined before starting.</p></div>
+          <div class="step" data-i="4"><div class="k">Station 5 · Experience</div><h3>The child makes, explains, solves or performs something.</h3><p>Projects, books, walks, mentors, workshops, games, conversations. The graph of what is available is chosen from, not marched through.</p></div>
+          <div class="step" data-i="5"><div class="k">Station 6 · Evidence</div><h3>What actually changed, and how sure we are.</h3><p>Work products, observations, the child's own reflection, a check after time has passed. Direct evidence outweighs inference. Every claim keeps its provenance.</p></div>
+          <div class="step" data-i="6"><div class="k">Station 7 · Adaptation</div><h3>The record updates. The next goal is chosen.</h3><p>Reflection with the child and the parent, then the loop turns again. The adult decides; the system proposes and shows its reasons.</p></div>
+        </div>
+      </div>
+      <div class="plate-cap rv"><b>Plate IV</b><span>The learning loop, drawn as a surveyor's traverse: seven stations, one closed circuit, walked again at every scale from an afternoon to a year. Click a station, or read down the right-hand column.</span></div>
+      <div class="plate state" id="stateplate">
+        <div class="frame"><svg id="stateSvg" viewBox="0 0 1200 560" aria-label="A map of one child's capabilities, changing across forty weeks" role="img"></svg>
+          <div class="lbl" id="lblA">Reading · secure</div><div class="lbl" id="lblB">Ratio and scale</div><div class="lbl u" id="lblC">Stamina for revision · not yet known</div>
+        </div>
+        <div class="shell ctl">
+          <div class="readout"><b>Learner state</b><span id="weekLbl">Week 1</span><em id="weekNote">September. The map is mostly blank; that is honest.</em></div>
+          <div class="timeline">
+            <input class="rng" type="range" id="week" min="1" max="40" value="1" step="1" aria-label="Week, one to forty">
+            <div class="moments" role="group" aria-label="Moments in the year">
+              <button type="button" data-w="1" style="left:0%">Sep<i></i></button><button type="button" data-w="8" style="left:18%">Making<i></i></button><button type="button" data-w="14" style="left:33.3%">The lake<i></i></button><button type="button" data-w="24" style="left:59%">Ratio secure<i></i></button><button type="button" data-w="31" style="left:77%">First revision check<i></i></button><button type="button" data-w="40" style="left:100%">May<i></i></button>
+            </div>
+          </div>
+          <div class="actions"><button type="button" class="btn small" id="playYear">Play the year</button><div class="legend"><span><i></i>secure</span><span><i class="thin"></i>developing</span><span><i class="hatch"></i>uncertain</span></div></div>
+        </div>
+        <div class="shell cap"><b>Plate V</b><span>The learner state is drawn as terrain because that is how it behaves: it rises where evidence accumulates, it shifts, and there are always regions nobody has surveyed yet. Move the week to watch one child's map change. Hatching is honesty, not decoration.</span></div>
+      </div>
+      <div class="two" style="margin-top:clamp(48px,6vw,80px)">
+        <div class="a copy rv"><p>Underneath all of it is an AI layer. Two kinds of model do most of the work: sensing models that turn what a child makes, says and does into evidence, and generative models that draft the next pathway, task or material for that child. Neither is the authority. Both show their working, and both stop at the bedrock, where an adult decides.</p></div>
+        <div class="b rv t1"><p class="pov">The models are advanced. The claims are modest. That is the correct way round.</p></div>
+      </div>
+      <div class="plate strata" id="strata">
+        <div class="frame"><div class="shell strata-grid">
+          <svg id="strataSvg" viewBox="0 0 760 420" style="min-width:0" role="img" aria-label="A section through Cavia: family life on the surface, the learner record beneath it, then sensing models, generative models, and the bedrock of safeguards and adult decision"></svg>
+          <div class="pane" id="strataPane" aria-live="polite">
+            <div class="meta indigo" id="stName">01 · Family life</div>
+            <p class="d4" id="stHead">Where all the evidence comes from.</p>
+            <p id="stBody">A walk, a map, a page of writing, a buckle. Life is the surface layer and the only one the child needs to see.</p>
+            <ul id="stList"><li>Projects, books, walks, mentors, conversations</li><li>Direct teaching and practice, in small doses</li><li>Nothing measured that does not serve the child</li></ul>
+          </div>
+        </div></div>
+        <div class="shell cap"><b>Plate VI</b><span>A section through Cavia. The child lives on the surface. The layers underneath carry what happened upward as evidence, and send the next step back up as a proposal. Hover or tap a stratum.</span></div>
+      </div>
+      <div class="principles">
+        <div class="p rv"><div class="meta indigo">Not a profile</div><h3>A state, with its uncertainty showing</h3><p>The record is dynamic and evidence based. It never hardens into a type or a label, and it says how much it does not know.</p></div>
+        <div class="p rv t1"><div class="meta indigo">Provenance</div><h3>Every claim keeps its evidence</h3><p>What was observed, when, by whom, under what conditions, and how confident the system is. Inferences are marked as inferences.</p></div>
+        <div class="p rv t2"><div class="meta indigo">Authority</div><h3>The adult decides</h3><p>AI here is infrastructure, not authority. It organises signals, proposes options and shows its reasons. It cannot know a child on its own, and it is never allowed to pretend otherwise.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 THE RESEARCH -->
+  <section class="night" id="research-ch">
+    <div class="chapter" aria-labelledby="t-res">
+      <div class="shell">
+        <div class="chapter-head">
+          <div class="marker rv"><span class="n">05</span><span class="t">The research</span></div>
+          <div class="title"><h2 class="d2 rv t1" id="t-res">We show our <em>working.</em></h2></div>
+        </div>
+        <div class="two">
+          <div class="a copy rv"><p>Cavia is being shaped by people working across several fields at once, and we keep three kinds of statement apart: what research already tells us, what Cavia believes, and what Cavia is still exploring. Families deserve to know which is which.</p></div>
+          <div class="b rv t1"><p class="pov" style="color:var(--paper)">The standard is not certainty. It is honesty about what warrants confidence.</p></div>
+        </div>
+        <ul class="disciplines rv" aria-label="Fields the work draws on"><li>Learning science</li><li>Developmental science</li><li>Cognition</li><li>Assessment</li><li>Social learning</li><li>AI</li><li>Technology</li></ul>
+        <div class="register">
+          <div class="rrow rv"><div class="k est"><i></i>Known</div><h3>Learning depends on more than the material in front of a child.</h3><p>Prior knowledge, motivation, culture, relationships and the setting all shape what is learned. No single framework captures every learner.</p></div>
+          <div class="rrow rv"><div class="k est"><i></i>Known</div><h3>Practice spaced over time, retrieval, feedback and reflection support durable learning.</h3><p>Useful principles, not a template. They work with a child's world, not instead of it.</p></div>
+          <div class="rrow rv"><div class="k est"><i></i>Known</div><h3>Autonomy, competence and relatedness matter for motivation.</h3><p>Children persist at things they have some say over, can get better at, and share with people they trust.</p></div>
+          <div class="rrow rv"><div class="k bel"><i></i>Cavia believes</div><h3>A living learner record can be more accountable than a static profile.</h3><p>A record that keeps evidence, uncertainty and context visible should make better decisions possible. This is a design choice we are testing, not a result.</p></div>
+          <div class="rrow rv"><div class="k bel"><i></i>Cavia believes</div><h3>Context can create a better reason to learn without lowering the bar.</h3><p>The lake does not replace the arithmetic. It makes the arithmetic worth doing, and we still teach and practise it directly.</p></div>
+          <div class="rrow rv"><div class="k exp"><i></i>Exploring</div><h3>What evidence shows growth without making childhood feel like constant measurement?</h3><p>We want forms of evidence that are useful to the child and the family, not only to a system.</p></div>
+          <div class="rrow rv"><div class="k exp"><i></i>Exploring</div><h3>When should a digital system make room for a person or a place instead?</h3><p>Sometimes the right recommendation is to close the device and go outside. We are studying when, and whether families experience that as useful.</p></div>
+        </div>
+        <p class="rv" style="margin-top:36px;display:flex;gap:18px;align-items:center;flex-wrap:wrap"><a class="btn paper small" href="#research" data-route="research">The full register, agenda and reading list</a><span class="small" style="color:rgba(244,239,228,.6)">Nothing we cite is a partnership, and no author has endorsed Cavia.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 THE COMMUNITY -->
+  <section class="chapter" id="community" aria-labelledby="t-com">
+    <div class="shell">
+      <div class="chapter-head">
+        <div class="marker rv"><span class="n">06</span><span class="t">The community</span></div>
+        <div class="title"><h2 class="d2 rv t1" id="t-com">A circle with enough room to <em>know one another.</em></h2></div>
+      </div>
+      <div class="cons" id="cons">
+        <div class="fig rv scrollplate"><svg id="consSvg" viewBox="0 0 760 560" role="img" aria-label="The people, places and experiences that enter one child's learning environment"></svg><p class="scroll-hint" style="margin-bottom:6px">Scroll sideways to see the whole circle</p><div class="plate-cap" style="margin-top:8px"><b>Plate VII</b><span>One child's learning environment. Each point entered because someone in the circle brought it in.</span></div></div>
+        <div class="txt rv t1">
+          <p class="pov">Cavia is invite only because learning is a relationship, not an audience.</p>
+          <p class="copy" style="margin-top:16px">The circle stays small enough for families, mentors and educators to know one another, and for what one family notices to be useful to another. A grandparent, a neighbour who repairs things, a scientist who will answer a nine-year-old's email, the lake nearby. They enter a child's learning environment because someone in the circle brought them in.</p>
+          <div class="looking"><div class="meta indigo">Who we are looking for</div><p>Families who want to make considered choices rather than collect resources. People willing to say what they notice, and to let it change the plan. Adults with something real to teach, who would enjoy being asked by a child.</p></div>
+        </div>
+      </div>
+      <div class="aside rv">
+        <div><div class="meta" style="color:var(--moss)">Free for families of autistic children</div><p>Cavia for autistic learners is a research-led initiative shaped around a child's strengths, communication, interests, routines and sensory context. It is free, and it is not a substitute for a child's existing care.</p></div>
+        <a class="btn" href="#autism" data-route="autism">The initiative</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 THE INVITATION -->
+  <section class="chapter wine" id="invitation" aria-labelledby="t-inv">
+    <div class="shell">
+      <div class="chapter-head">
+        <div class="marker rv"><span class="n">07</span><span class="t">The invitation</span></div>
+        <div class="title"><h2 class="d2 rv t1" id="t-inv">Tell us about <em>your child.</em></h2></div>
+      </div>
+      <div class="invite">
+        <div class="l">
+          <div class="copy rv"><p>Not a test score. Not a grade. What have you noticed lately? What are they drawn to, what do they avoid, what would you like their education to make possible?</p><p>We read every request as the beginning of a conversation. Cavia is not for everyone, and it should be right for someone: there is no promise of admission, and no assumption that one kind of education fits every family.</p></div>
+          <p class="small rv t1" style="margin-top:28px">This is an expression of interest, not an assessment, a diagnosis or a contract. This page stores nothing; what you write here is shown back to you and goes no further until a member of the team writes to you.</p>
+        </div>
+        <form id="form" novalidate>
+          <div class="fields">
+            <div class="field grid2"><div><label for="fName">Your name</label><input id="fName" name="name" type="text" autocomplete="name" required></div><div><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div></div>
+            <div class="field grid2"><div><label for="fCity">Where you are based</label><input id="fCity" name="city" type="text" autocomplete="address-level2" placeholder="Your city"></div><div><label for="fAge">Your child's age</label><select id="fAge" name="age"><option value="">Choose</option><option>Four</option><option>Five</option><option>Six</option><option>Seven</option><option>Eight</option><option>Nine</option><option>Ten</option><option>Eleven</option><option>Twelve</option><option>More than one child</option></select></div></div>
+            <div class="field"><label for="fNotice">What have you noticed about your child lately?</label><textarea id="fNotice" name="notice" placeholder="Anything true. A question they keep asking. Something they gave up on. What they do when nobody is watching."></textarea></div>
+            <div class="field"><label for="fHope">What do you hope education could make possible?</label><textarea id="fHope" name="hope"></textarea></div>
+            <label class="consent"><input type="checkbox" id="fOk" required><span>I understand this is a request to talk, that nothing is stored by this page, and that Cavia may write back with questions before anything else.</span></label>
+          </div>
+          <div class="form-foot"><span class="small" id="formMsg">Two fields are required: your name and an email.</span><button class="btn fill" type="submit">Request an invitation</button></div>
+          <div class="sent" aria-live="polite"><div class="meta">Received</div><p class="d3" style="margin:12px 0 10px">Thank you. Your note has been read with care.</p><p class="copy" id="sentBack"></p></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- ============================ RESEARCH ============================ -->
+<article class="page" data-page="research" id="p-research">
+  <section class="pagehead" aria-labelledby="t-r1">
+    <div class="shell">
+      <div class="marker rv"><span class="n">R</span><span class="t">Research</span></div>
+      <h1 class="d1 rv t1" id="t-r1">Careful ideas deserve <em>careful testing.</em></h1>
+      <p class="lead rv t2">This page is the register we keep for ourselves. It separates what research has already established, what Cavia believes and is building on, and what we are still exploring and intend to test. When the register changes, this page changes.</p>
+    </div>
+  </section>
+  <section class="band" aria-labelledby="t-r2">
+    <div class="shell">
+      <div class="two" style="margin-bottom:clamp(40px,5vw,72px)">
+        <div class="a"><h2 class="d3 rv" id="t-r2">Established</h2><p class="copy rv t1" style="margin-top:14px">Findings with broad support across learning and developmental science. We use them as constraints on the design, not as marketing.</p></div>
+      </div>
+      <div class="ledger">
+        <div class="row rv"><div class="k est"><i></i>Known</div><h3>Learning is a change in the learner produced by interaction with tasks, people, tools and environments over time.</h3><p>So a learning system has to model both the learner and the context the learning happens in. Neither alone is enough.</p></div>
+        <div class="row rv"><div class="k est"><i></i>Known</div><h3>Prior knowledge, memory, retrieval, spaced practice, feedback and transfer shape what stays learned.</h3><p>A personalised education still needs systematic knowledge and vocabulary, and still needs to be checked after time has passed.</p></div>
+        <div class="row rv"><div class="k est"><i></i>Known</div><h3>Autonomy, competence and relatedness sustain motivation.</h3><p>Choice should expand as capability and self-regulation grow, not be handed over all at once.</p></div>
+        <div class="row rv"><div class="k est"><i></i>Known</div><h3>Guided play and experiential learning support development when an adult shapes the activity.</h3><p>Meaningful activity, exploration and active participation, with adult guidance, rather than either free play or a worksheet.</p></div>
+        <div class="row rv"><div class="k est"><i></i>Known</div><h3>Metacognition, planning, monitoring and reflection can be taught, at an age-appropriate scale.</h3><p>Children can be asked to plan, monitor and review. The activities must fit the age.</p></div>
+        <div class="row rv"><div class="k est"><i></i>Known</div><h3>Fixed learning styles and personality types do not predict how a child should be taught.</h3><p>Cavia does not use them. Learner characteristics inform adaptation only when the evidence is useful and the characteristic is relevant to the task.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band" aria-labelledby="t-r3">
+    <div class="shell">
+      <div class="two" style="margin-bottom:clamp(40px,5vw,72px)">
+        <div class="a"><h2 class="d3 rv" id="t-r3">What Cavia believes</h2><p class="copy rv t1" style="margin-top:14px">Design positions we have taken deliberately. Each is a hypothesis with a reason, and each can be wrong.</p></div>
+      </div>
+      <div class="ledger">
+        <div class="row rv"><div class="k bel"><i></i>Belief</div><h3>The unit of design should be the goal and the learner's current state, not the lesson or the resource.</h3><p>The whitepaper calls this the canonical cycle: purpose, context, goal, experience, instruction and practice, performance, reflection, evidence, update, next goal.</p></div>
+        <div class="row rv"><div class="k bel"><i></i>Belief</div><h3>A stable spine with a flexible surface resolves the rigid-timetable versus unstructured-learning argument.</h3><p>Capability families and broad progression are stable across years. Pace, emphasis, context and route adapt at the level of the term, the week, the day and the task.</p></div>
+        <div class="row rv"><div class="k bel"><i></i>Belief</div><h3>A learner record that carries evidence, provenance and confidence is more accountable than a profile.</h3><p>Direct performance outweighs inference. Independent evidence outweighs repeated observation from one source. Inferences are marked as inferences.</p></div>
+        <div class="row rv"><div class="k bel"><i></i>Belief</div><h3>AI should be infrastructure, never the educational authority.</h3><p>A parent assistant must not overstate certainty or turn observations into diagnoses. A child assistant must promote human relationships and independence. High-stakes decisions belong to people.</p></div>
+        <div class="row rv"><div class="k bel"><i></i>Belief</div><h3>Change the environment before labelling the child.</h3><p>If progress stalls, modify difficulty, scaffolding, setting or support before reaching for a trait-level explanation.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band" aria-labelledby="t-r4">
+    <div class="shell">
+      <div class="two" style="margin-bottom:clamp(40px,5vw,72px)">
+        <div class="a"><h2 class="d3 rv" id="t-r4">What we are exploring</h2><p class="copy rv t1" style="margin-top:14px">Research questions, in the order we expect to work on them. Major causal claims will be preregistered and independently reviewed before we make them.</p></div>
+        <div class="b"><p class="pov rv t1">Begin with a design cohort of thirty to fifty families. Iterate the parent and learner models. Then a larger pilot with outcomes specified in advance. Only then, controlled studies.</p></div>
+      </div>
+      <ol class="agenda rv">
+        <li>Does contextual pathway design improve durable learning compared with resource-first tutoring, when foundational practice is held constant?</li>
+        <li>Does parent capability training reduce parent workload per unit of learner progress?</li>
+        <li>Can the learner model predict useful next steps without harmful over-inference?</li>
+        <li>Does meaningful agency improve persistence and transfer without reducing foundational coverage?</li>
+        <li>What combination of family, peer and mentor interaction is sufficient for social development in mainly home-based settings?</li>
+        <li>Which evidence types most reliably support school transition and later credentialing?</li>
+        <li>Can strong child–AI safeguards be implemented without materially reducing educational usefulness?</li>
+      </ol>
+    </div>
+  </section>
+  <section class="band" aria-labelledby="t-r5">
+    <div class="shell">
+      <div class="two">
+        <div class="a"><h2 class="d3 rv" id="t-r5">Safeguarding and data</h2>
+          <ul class="copy rv t1" style="margin-top:14px;padding-left:1.1em"><li>Collect only data that serves a clear educational purpose.</li><li>Parents control collection, visibility, export and deletion where applicable.</li><li>Child profiles are never sold or used for advertising.</li><li>Sensitive inferences are kept apart from ordinary records and never presented as facts without evidence.</li><li>Human review for high-impact decisions.</li><li>Optimise for learning and wellbeing, not time spent with the AI.</li></ul></div>
+        <div class="b"><h2 class="d3 rv" id="t-r6">Credentials and school transition</h2><p class="copy rv t1" style="margin-top:14px">Home-based learning does not automatically produce a school-equivalent credential, and we do not claim that it does. Cavia keeps routes open: a record that maps a child's evidence to the requirements of an external pathway, and a transition plan for families who move to or from a mainstream school. In India, NIOS is one such route; Cambridge and Pearson have private-candidate routes subject to their current rules. Eligibility changes and is checked case by case.</p>
+          <p style="margin-top:22px"><a class="btn" href="#invitation">Request an invitation</a></p></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- ============================ AUTISM INITIATIVE ============================ -->
+<article class="page autism" data-page="autism" id="p-autism">
+  <section class="pagehead" aria-labelledby="t-a1">
+    <div class="shell">
+      <div class="marker rv"><span class="n">A</span><span class="t">For autistic learners</span></div>
+      <h1 class="d1 rv t1" id="t-a1">Learning should make room for the <em>whole child.</em></h1>
+      <p class="lead rv t2">Cavia for autistic learners is a research-led initiative for families who want an education shaped around a child's strengths, communication, interests, routines, sensory context and changing development. It is free for parents of autistic children.</p>
+      <div class="free rv t3"><i></i>Free for families of autistic children</div>
+    </div>
+  </section>
+  <section class="band" aria-labelledby="t-a2">
+    <div class="shell">
+      <div class="two">
+        <div class="a"><h2 class="d3 rv" id="t-a2">No autism story is a template for another child.</h2><p class="copy rv t1" style="margin-top:14px">This work begins with listening. It asks what helps this child feel understood, available for learning and able to take part. It does not reduce a child to a diagnosis, a score, or a list of deficits, and it does not assume a sensory or communication profile before meeting the child.</p></div>
+        <div class="b"><p class="pov rv t1">The conditions around learning are part of learning.</p></div>
+      </div>
+      <div class="steps4">
+        <div class="s rv"><div class="meta">We pay attention to</div><h3>Communication</h3><p>How a child understands, expresses preferences, and is best met in conversation.</p></div>
+        <div class="s rv t1"><div class="meta">We pay attention to</div><h3>Sensory context</h3><p>What in an environment supports participation and what makes it harder. Personal, not presumed.</p></div>
+        <div class="s rv t2"><div class="meta">We pay attention to</div><h3>Interests and strengths</h3><p>What a child notices deeply, returns to, and may want to use as a way into new learning.</p></div>
+        <div class="s rv t3"><div class="meta">We pay attention to</div><h3>Rhythm and relationship</h3><p>Routines, transitions, recovery, trusted people, and the practical shape of a family's days.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band" aria-labelledby="t-a3">
+    <div class="shell">
+      <h2 class="d3 rv" id="t-a3">A different kind of plan</h2>
+      <div class="steps4">
+        <div class="s rv"><div class="meta">Listen</div><h3>Begin with the child and family</h3><p>Build a shared picture of strengths, needs, hopes, and what makes a day workable.</p></div>
+        <div class="s rv t1"><div class="meta">Adjust</div><h3>Design the environment with care</h3><p>Communication, sensory context, pace, transitions and available support, considered before content.</p></div>
+        <div class="s rv t2"><div class="meta">Explore</div><h3>Make a path with meaning</h3><p>Connect the child's interests to worthwhile learning experiences and clear goals.</p></div>
+        <div class="s rv t3"><div class="meta">Reflect</div><h3>Keep learning from the child</h3><p>Notice what supported participation, revise what did not, and make the next step together.</p></div>
+      </div>
+      <div class="boundary">
+        <div class="h rv"><h2 class="d3">Support for learning. Not a substitute for care.</h2><p class="copy" style="margin-top:14px">Cavia does not diagnose autism, provide therapy, make clinical recommendations, or replace a child's existing specialists.</p></div>
+        <ol class="rv t1"><li><span>i</span>We do not assume a sensory or communication profile.</li><li><span>ii</span>We do not treat difference as a problem to correct.</li><li><span>iii</span>We keep decisions visible to families and invite challenge.</li><li><span>iv</span>We take guidance from autistic people, families and specialists seriously.</li></ol>
+      </div>
+    </div>
+  </section>
+  <section class="band" aria-labelledby="t-a4">
+    <div class="shell">
+      <div class="two" style="margin-bottom:clamp(32px,4vw,56px)"><div class="a"><h2 class="d3 rv" id="t-a4">What informs this work</h2></div></div>
+      <div class="ledger">
+        <div class="row rv"><div class="k est"><i></i>Known</div><h3>Autism is diverse. Needs and abilities vary, and can change over time.</h3><p>A learning plan has to be built with the child and family rather than imported from a type.</p></div>
+        <div class="row rv"><div class="k est"><i></i>Known</div><h3>Physical and social environments affect participation.</h3><p>Guidance for children and young people includes attending to individual sensory sensitivities and making appropriate adjustments.</p></div>
+        <div class="row rv"><div class="k bel"><i></i>Belief</div><h3>A learner record that keeps context visible may help families make better educational choices.</h3><p>A design hypothesis that needs ongoing critique and research with autistic people, families and specialists.</p></div>
+        <div class="row rv"><div class="k exp"><i></i>Exploring</div><h3>What makes a digital learning system feel useful, safe and respectful to autistic children and their families?</h3><p>To be determined with the community, not assumed by a product team.</p></div>
+      </div>
+      <div class="reading light" style="margin-top:clamp(40px,5vw,64px)">
+        <div class="h"><div class="meta">Sources</div></div>
+        <ol>
+          <li><a href="https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders" target="_blank" rel="noopener">World Health Organization. Autism fact sheet.</a></li>
+          <li><a href="https://www.nice.org.uk/guidance/cg170" target="_blank" rel="noopener">NICE. Autism spectrum disorder in under 19s: support and management (CG170).</a></li>
+          <li><a href="https://www.autistica.org.uk/our-research/research-priorities" target="_blank" rel="noopener">Autistica. Research priorities set with autistic people and families.</a></li>
+          <li><a href="https://www.autism.org.uk/advice-and-guidance/topics/sensory-differences" target="_blank" rel="noopener">National Autistic Society. Sensory differences.</a></li>
+        </ol>
+      </div>
+      <p style="margin-top:clamp(40px,5vw,64px)"><a class="btn fill" href="#invitation">Request an invitation</a></p>
+    </div>
+  </section>
+</article>
+</main>
+
+<footer>
+  <div class="shell grid">
+    <div class="f1"><div class="wordmark">Cavia <small>Club</small></div><p>Learning begins with a life. Education is a changing relationship between a child and the world, and it can be built that way.</p></div>
+    <div class="f2"><h4>Read</h4><ul><li><a href="#why">Why</a></li><li><a href="#model">A different model</a></li><li><a href="#experience">The experience</a></li><li><a href="#system">The system</a></li><li><a href="#research" data-route="research">The research register</a></li></ul></div>
+    <div class="f3"><h4>Join</h4><ul><li><a href="#community">The community</a></li><li><a href="#autism" data-route="autism">For autistic learners</a></li><li><a href="#invitation">Request an invitation</a></li></ul></div>
+  </div>
+  <div class="shell base"><span>© 2026 Cavia Club</span><span>For children aged four to twelve · by invitation</span><span>Nothing on this site is a promise of admission, an assessment or a diagnosis.</span></div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS='http://www.w3.org/2000/svg';
+const el=(n,a,p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+
+/* ---------- noise + marching squares: every map on this site is generated from a field, not drawn ---------- */
+function makeNoise(seed){
+ const P=new Uint8Array(512);const r=(()=>{let x=seed>>>0||7;return()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return(x>>>0)/4294967296;};})();
+ const perm=[...Array(256).keys()];for(let i=255;i>0;i--){const j=Math.floor(r()*(i+1));[perm[i],perm[j]]=[perm[j],perm[i]];}
+ for(let i=0;i<512;i++)P[i]=perm[i&255];
+ const val=(ix,iy,iz)=>P[(P[(P[ix&255]+iy)&255]+iz)&255]/255;
+ const sm=t=>t*t*(3-2*t);
+ function n3(x,y,z){const ix=Math.floor(x),iy=Math.floor(y),iz=Math.floor(z);const fx=sm(x-ix),fy=sm(y-iy),fz=sm(z-iz);
+  const l=(a,b,t)=>a+(b-a)*t;
+  const c00=l(val(ix,iy,iz),val(ix+1,iy,iz),fx),c10=l(val(ix,iy+1,iz),val(ix+1,iy+1,iz),fx),c01=l(val(ix,iy,iz+1),val(ix+1,iy,iz+1),fx),c11=l(val(ix,iy+1,iz+1),val(ix+1,iy+1,iz+1),fx);
+  return l(l(c00,c10,fy),l(c01,c11,fy),fz);}
+ return (x,y,z,oct=3)=>{let s=0,a=1,f=1,norm=0;for(let o=0;o<oct;o++){s+=a*n3(x*f,y*f,z*f);norm+=a;a*=.5;f*=2.1;}return s/norm;};
+}
+// marching squares on a grid of values; returns one path string per level
+function contours(grid,cols,rows,levels,W,H){
+ const cw=W/(cols-1),ch=H/(rows-1);const out=levels.map(()=>[]);
+ const ip=(a,b,l)=>(l-a)/((b-a)||1e-6);
+ for(let li=0;li<levels.length;li++){const L=levels[li];const segs=out[li];
+  for(let y=0;y<rows-1;y++)for(let x=0;x<cols-1;x++){
+   const a=grid[y*cols+x],b=grid[y*cols+x+1],c=grid[(y+1)*cols+x+1],d=grid[(y+1)*cols+x];
+   const idx=(a>L?8:0)|(b>L?4:0)|(c>L?2:0)|(d>L?1:0);if(!idx||idx===15)continue;
+   const X=x*cw,Y=y*ch;
+   const top=[X+cw*ip(a,b,L),Y],right=[X+cw,Y+ch*ip(b,c,L)],bottom=[X+cw*ip(d,c,L),Y+ch],left=[X,Y+ch*ip(a,d,L)];
+   const put=(p,q)=>segs.push('M'+p[0].toFixed(1)+' '+p[1].toFixed(1)+'L'+q[0].toFixed(1)+' '+q[1].toFixed(1));
+   switch(idx){case 1:case 14:put(left,bottom);break;case 2:case 13:put(bottom,right);break;case 3:case 12:put(left,right);break;case 4:case 11:put(top,right);break;case 5:put(top,left);put(bottom,right);break;case 6:case 9:put(top,bottom);break;case 7:case 8:put(top,left);break;case 10:put(top,right);put(left,bottom);break;}
+  }}
+ return out.map(s=>s.join(''));
+}
+function hatch(conf,vals,cols,rows,W,H,th,minVal){ // short diagonal ticks where evidence is thin: the honest part of every map
+ const cw=W/(cols-1),ch=H/(rows-1);let d='';
+ for(let y=0;y<rows-1;y+=1)for(let x=(y%2);x<cols-1;x+=2){const i=y*cols+x;if(conf[i]<th&&vals[i]>minVal){const X=x*cw+cw*.2,Y=y*ch+ch*.1;d+='M'+X.toFixed(1)+' '+(Y+ch*.8).toFixed(1)+'l'+(cw*.6).toFixed(1)+' '+(-ch*.8).toFixed(1);}}
+ return d;
+}
+
+/* ---------- Plate I: the hero terrain, alive ---------- */
+(function hero(){
+ const host=$('#terrain');if(!host)return;
+ const W=1280,H=800,cols=64,rows=40;const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,preserveAspectRatio:'xMidYMid slice'},host);
+ const noise=makeNoise(1974),cnoise=makeNoise(2026);
+ const levels=[.36,.44,.52,.6,.68,.76];const paths=levels.map((l,i)=>el('path',{class:i>=3?'deep':''},svg));const hp=el('path',{class:'hatch'},svg);
+ const vals=new Float32Array(cols*rows),conf=new Float32Array(cols*rows);
+ let t=0,last=0,visible=true;
+ function draw(){
+  for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){const u=x/cols,v=y/rows;
+   // a ridge on the right where the child is; the left is quieter, so the words can sit there
+   const ridge=Math.exp(-Math.pow((u-.72)*2.2,2)-Math.pow((v-.45)*1.8,2))*.36;
+   vals[y*cols+x]=noise(u*3.1,v*2.6,t,3)*.7+ridge;
+   conf[y*cols+x]=cnoise(u*2.2,v*2.2,t*.5,2);}
+  const d=contours(vals,cols,rows,levels,W,H);d.forEach((s,i)=>paths[i].setAttribute('d',s));
+  hp.setAttribute('d',hatch(conf,vals,cols,rows,W,H,.38,.44));
+ }
+ draw();
+ if(reduce)return;
+ new IntersectionObserver(e=>{visible=e[0].isIntersecting;},{threshold:0}).observe(host);
+ function tick(now){requestAnimationFrame(tick);if(!visible||document.hidden)return;if(now-last<110)return;last=now;t+=.012;draw();}
+ requestAnimationFrame(tick);
+})();
+
+/* ---------- Plate II: one term, two ways ---------- */
+(function term(){
+ const host=$('#term');if(!host)return;
+ const W=1200,H=430;const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Forty periods shown first as a timetable grid, then regrouped along a pathway through five places, people and pieces of work'},host);
+ const G=el('g',{},svg);
+ // --- timetable: 8 weeks × 5 days, forty identical periods ---
+ const cols=8,rows=5,bw=112,bh=40,gx=134,gy=58,ox=88,oy=70;
+ const gl=el('g',{class:'grid-l'},G);
+ ['Mon','Tue','Wed','Thu','Fri'].forEach((d,r)=>{const t=el('text',{class:'glab',x:ox-16,y:oy+r*gy+bh/2+4,'text-anchor':'end'},gl);t.textContent=d;});
+ for(let c=0;c<cols;c++){const t=el('text',{class:'glab',x:ox+c*gx,y:oy-18},gl);t.textContent='Week '+(c+1);}
+ const kt=el('text',{class:'key',x:ox,y:oy+rows*gy+22},gl);kt.textContent='One block = one period · the same sequence for every child';
+ // --- pathway: five stations along a route, the same forty periods regrouped ---
+ const S=[{x:110,y:300,n:'The lake after rain',s:'place · a question',k:'ex',hrs:8},{x:360,y:150,n:'A grandparent\u2019s photograph',s:'person · the same place, years ago',k:'ex',hrs:4},{x:600,y:290,n:'The map, 1 : 25,000',s:'instruction · scale and ratio',k:'in',hrs:6},{x:840,y:140,n:'Ten minutes at the table',s:'practice · daily',k:'pr',hrs:10},{x:1080,y:290,n:'A letter to the ward office',s:'work · what should happen',k:'wk',hrs:12}];
+ const d=`M${S[0].x} ${S[0].y}C${S[0].x+110} ${S[0].y-40},${S[1].x-110} ${S[1].y+40},${S[1].x} ${S[1].y}S${S[2].x-110} ${S[2].y+40},${S[2].x} ${S[2].y}S${S[3].x-110} ${S[3].y-40},${S[3].x} ${S[3].y}S${S[4].x-110} ${S[4].y+40},${S[4].x} ${S[4].y}`;
+ const route=el('g',{class:'route'},G);el('path',{class:'trail-ghost',d},route);el('path',{class:'trail',d},route);
+ S.forEach((s,i)=>{const g=el('g',{class:'stn'},route);el('circle',{cx:s.x,cy:s.y,r:14},g);const n=el('text',{class:'num',x:s.x,y:s.y+3.5,'text-anchor':'middle'},g);n.textContent=String(i+1).padStart(2,'0');
+  const up=s.y<220;const ty=up?s.y+62:s.y-52;const name=el('text',{class:'name',x:s.x,y:ty,'text-anchor':'middle'},g);name.textContent=s.n;const sub=el('text',{class:'sub',x:s.x,y:ty+15,'text-anchor':'middle'},g);sub.textContent=s.s;});
+ const kp=el('text',{class:'key',x:88,y:H-12},route);kp.textContent='The same forty periods, regrouped:';
+ [['ex','experiences with places and people',300],['in','direct instruction',540],['pr','practice',690],['wk','a piece of work',790]].forEach(([k,l,x])=>{el('rect',{class:'blk '+k,x,y:H-21,width:12,height:10},route);const t=el('text',{class:'key',x:x+18,y:H-12},route);t.textContent=l;});
+ // --- the forty blocks: grid positions and station stacks (2 columns of small blocks beside each station) ---
+ const blocks=[];const bg=el('g',{},G);const bw2=18,bh2=10;
+ const stackPos=[];S.forEach((s,i)=>{const cols2=2,colH=Math.ceil(s.hrs/cols2);for(let n=0;n<s.hrs;n++){const c=n%cols2,r=Math.floor(n/cols2);const bx=s.x+24+c*(bw2+4),by=s.y-(colH*(bh2+3))/2+r*(bh2+3);stackPos.push({x:bx,y:by,k:s.k});}});
+ for(let i=0;i<cols*rows;i++){const r=i%rows,c=Math.floor(i/rows);const b=el('rect',{class:'blk in',x:0,y:0,width:bw,height:bh,rx:1.5},bg);b._grid=[ox+c*gx,oy+r*gy];blocks.push(b);}
+ function setMode(path){
+  host.classList.toggle('path',path);
+  blocks.forEach((b,i)=>{b.style.transformOrigin='0 0';
+   if(path){const p=stackPos[i];b.style.transform=`translate(${p.x}px,${p.y}px) scale(${bw2/bw},${bh2/bh})`;b.setAttribute('class','blk '+p.k);b.style.transitionDelay=(i*14)+'ms';}
+   else{b.style.transform=`translate(${b._grid[0]}px,${b._grid[1]}px) scale(1,1)`;b.setAttribute('class','blk in');b.style.transitionDelay=((cols*rows-i)*8)+'ms';}});
+  $('#segA').setAttribute('aria-pressed',String(!path));$('#segB').setAttribute('aria-pressed',String(path));
+  $('#termNote').textContent=path?'The same forty periods, regrouped around a lake, a grandparent, a map, a table, and a letter that had to be written.':'Forty identical periods. The same sequence for every child.';
+ }
+ setMode(false);
+ $('#segA').addEventListener('click',()=>setMode(false));$('#segB').addEventListener('click',()=>setMode(true));
+ let shown=false;new IntersectionObserver(e=>{if(e[0].isIntersecting&&!shown){shown=true;setTimeout(()=>setMode(true),reduce?0:1100);}},{threshold:.55}).observe(host);
+})();
+
+/* ---------- Plate: the loop, drawn as a traverse ---------- */
+(function loop(){
+ const svg=$('#trav');if(!svg)return;
+ const C=[320,320],R=228;const names=['Learner','Context','Goal','Pathway','Experience','Evidence','Adaptation'];
+ const glyph=[
+  'M-9 3c3-9 15-9 18 0M-5 1c2-4 8-4 10 0',            // learner: two contour rings
+  'M0-10v20M-10 0h20M0-10l4 4M0 10l-4-4',              // context: compass ticks
+  'M-4 10V-9h11l-4 4 4 4H-4',                          // goal: a flag
+  'M-10 8c6-10 10 4 16-4s4-8 8-8',                     // pathway: a trail
+  'M-8 6c4-12 12-12 16 0M-6 6h12M0 6v4',               // experience: a hand/leaf
+  'M-8-8h16v16H-8zM-4-2h8M-4 3h8',                     // evidence: a ledger
+  'M8-2a8 8 0 1 0 2 5M8-9v7h-7'                        // adaptation: a returning arrow
+ ];
+ el('circle',{class:'ring',cx:C[0],cy:C[1],r:R},svg);
+ const pts=names.map((n,i)=>{const a=-Math.PI/2+i*2*Math.PI/7;const rr=R+(i%2?8:-6);return [C[0]+Math.cos(a)*rr,C[1]+Math.sin(a)*rr,a];});
+ const edges=pts.map((p,i)=>{const q=pts[(i+1)%7];const mx=(p[0]+q[0])/2,my=(p[1]+q[1])/2;const cx=C[0]+(mx-C[0])*1.12,cy=C[1]+(my-C[1])*1.12;return el('path',{class:'edge',d:`M${p[0]} ${p[1]}Q${cx} ${cy} ${q[0]} ${q[1]}`},svg);});
+ const centre=el('text',{class:'centre',x:C[0],y:C[1]-6,'text-anchor':'middle'},svg);const sub=el('text',{class:'centre sub',x:C[0],y:C[1]+18,'text-anchor':'middle'},svg);
+ const st=pts.map((p,i)=>{const g=el('g',{class:'st',tabindex:'0',role:'button','aria-label':names[i]},svg);el('circle',{cx:p[0],cy:p[1],r:23},g);const gl=el('path',{class:'g',d:glyph[i]},g);gl.setAttribute('transform',`translate(${p[0]} ${p[1]})`);
+  const lx=C[0]+Math.cos(p[2])*(R+52),ly=C[1]+Math.sin(p[2])*(R+52);const t=el('text',{x:lx,y:ly+3,'text-anchor':Math.abs(Math.cos(p[2]))<.3?'middle':Math.cos(p[2])>0?'start':'end'},g);t.textContent=names[i];return g;});
+ const steps=$$('#steps .step');
+ function set(i){st.forEach((g,j)=>{g.classList.toggle('on',j===i);g.classList.toggle('done',j<i);});edges.forEach((e,j)=>e.classList.toggle('on',j<i));
+  centre.textContent=names[i];sub.textContent=i===6?'then the loop turns again':'station '+(i+1)+' of 7';steps.forEach((s,j)=>s.classList.toggle('on',j===i));}
+ set(0);
+ st.forEach((g,i)=>{const go=()=>{set(i);if(innerWidth>900)steps[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});};g.addEventListener('click',go);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});});
+ if(innerWidth>900){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)set(+e.target.dataset.i);});},{rootMargin:'-45% 0px -45% 0px',threshold:0});steps.forEach(s=>io.observe(s));}
+})();
+
+/* ---------- Plate III: the learner state across forty weeks ---------- */
+(function state(){
+ const svg=$('#stateSvg');if(!svg)return;
+ const W=1200,H=560,cols=60,rows=28;const noise=makeNoise(14);
+ const thin=[.22,.34,.46].map(()=>el('path',{class:'c1'},svg)),deep=[.58,.7,.82].map(()=>el('path',{class:'c2'},svg));const hp=el('path',{class:'hatch'},svg);
+ const vals=new Float32Array(cols*rows),conf=new Float32Array(cols*rows);
+ // capabilities as hills: position, and how height and confidence grow across the year
+ const hills=[
+  {x:.2,y:.5,sx:.13,sy:.24,amp:w=>.86,conf:w=>.9},                                     // reading: secure from the start
+  {x:.6,y:.42,sx:.12,sy:.2,amp:w=>.3+.5*sig((w-14)/6),conf:w=>.25+.6*sig((w-16)/5)},   // ratio and scale: rises after the lake
+  {x:.42,y:.74,sx:.11,sy:.15,amp:w=>.25+.45*sig((w-13)/3),conf:w=>.2+.5*sig((w-15)/4)}, // writing that argues: appears week 14
+  {x:.85,y:.32,sx:.1,sy:.2,amp:w=>.5+.15*sig((w-30)/5),conf:w=>.1+.6*sig((w-31)/4)},    // stamina for revision: unknown until surveyed
+  {x:.5,y:.15,sx:.16,sy:.12,amp:w=>.4+.2*sig((w-8)/6),conf:w=>.5+.3*sig((w-10)/5)},     // making
+ ];
+ function sig(x){return 1/(1+Math.exp(-x));}
+ const lbl={A:[.2,.5],B:[.6,.42],C:[.85,.32]};
+ function draw(w){
+  for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){const u=x/cols,v=y/rows;let s=0,c=.18;
+   hills.forEach(h=>{const g=Math.exp(-Math.pow((u-h.x)/h.sx,2)-Math.pow((v-h.y)/h.sy,2));s+=g*h.amp(w);c+=g*h.conf(w);});
+   vals[y*cols+x]=Math.min(1,s+noise(u*3,v*3,w*.03,2)*.16);conf[y*cols+x]=Math.min(1,c+noise(u*2+9,v*2,w*.02,2)*.15);}
+  const d=contours(vals,cols,rows,[.22,.34,.46,.58,.7,.82],W,H);thin.forEach((p,i)=>p.setAttribute('d',d[i]));deep.forEach((p,i)=>p.setAttribute('d',d[i+3]));
+  hp.setAttribute('d',hatch(conf,vals,cols,rows,W,H,.42,.2));
+  $('#weekLbl').textContent='Week '+Math.round(w);
+  const a=$('#lblA'),b=$('#lblB'),c=$('#lblC');
+  a.style.left=(lbl.A[0]*100)+'%';a.style.top=(lbl.A[1]*100-6)+'%';a.style.transform='translate(-50%,-50%)';
+  b.style.left=(lbl.B[0]*100)+'%';b.style.top=(lbl.B[1]*100-5)+'%';b.style.transform='translate(-50%,-50%)';b.textContent=w<12?'Ratio and scale · not yet':w<24?'Ratio and scale · developing':'Ratio and scale · secure';b.style.opacity=w<8?.45:1;
+  c.style.left=(lbl.C[0]*100)+'%';c.style.top=(lbl.C[1]*100-6)+'%';c.style.transform='translate(-50%,-50%)';c.textContent=w<30?'Stamina for revision · not yet known':w<34?'Stamina for revision · one check so far':'Stamina for revision · developing';c.classList.toggle('u',w<34);
+ }
+ const rng=$('#week'),moms=$$('.state .moments button'),note=$('#weekNote');
+ const notes=[[1,'September. The map is mostly blank; that is honest.'],[6,'Reading was secure before anyone measured it. Making begins to show.'],[13,'A real question. A walk, a photograph, a map.'],[15,'The map: the first ratio without a prompt. One piece of evidence, marked as such.'],[22,'Ratio and scale come up through practice. The hatching retreats.'],[30,'Stamina for revision has never been surveyed. One short check is planned.'],[34,'One check so far. The region is drawn, lightly.'],[40,'May. A year of evidence, and still a map with edges.']];
+ let cur=1,target=1,raf=null;
+ function settle(){const diff=target-cur;if(Math.abs(diff)<.05){cur=target;draw(cur);raf=null;return;}cur+=diff*(reduce?1:.14);draw(cur);raf=requestAnimationFrame(settle);}
+ function go(w){target=Math.max(1,Math.min(40,w));rng.value=Math.round(target);const n=notes.filter(x=>x[0]<=target).pop();note.textContent=n?n[1]:'';moms.forEach(b=>b.classList.toggle('on',+b.dataset.w<=target));if(!raf)raf=requestAnimationFrame(settle);}
+ rng.addEventListener('input',()=>go(+rng.value));moms.forEach(b=>b.addEventListener('click',()=>go(+b.dataset.w)));
+ let playing=null;$('#playYear').addEventListener('click',()=>{if(playing){clearInterval(playing);playing=null;$('#playYear').textContent='Play the year';return;}let w=1;go(1);$('#playYear').textContent='Stop';playing=setInterval(()=>{w+=1;go(w);if(w>=40){clearInterval(playing);playing=null;$('#playYear').textContent='Play the year';}},reduce?40:160);});
+ draw(1);
+ let played=false;new IntersectionObserver(e=>{if(e[0].isIntersecting&&!played){played=true;go(14);}},{threshold:.5}).observe(svg);
+})();
+
+/* ---------- Plate VII: the constellation, laid out as an anatomical plate ---------- */
+(function cons(){
+ const svg=$('#consSvg');if(!svg)return;
+ const W=760,H=520,C=[380,262];const R=[78,146,214];
+ const nodes=[ // ring: 0 every day · 1 every week · 2 when asked
+  {k:'person',r:0,a:200,l:'Family',s:'every day'},{k:'tech',r:0,a:330,l:'Cavia',s:'the quiet infrastructure'},
+  {k:'place',r:1,a:20,l:'The lake',s:'ten minutes away'},{k:'person',r:1,a:150,l:'A grandparent',s:'an old photograph'},{k:'exp',r:1,a:95,l:'Ten minutes at the table',s:'practice'},{k:'exp',r:1,a:250,l:'A walk with two jars',s:'experience'},{k:'place',r:1,a:300,l:'Football ground',s:'Sunday'},
+  {k:'person',r:2,a:35,l:'A scientist',s:'answers email'},{k:'person',r:2,a:210,l:'A neighbour who repairs things',s:'Thursdays'},{k:'place',r:2,a:130,l:'The library',s:'Saturday'},{k:'exp',r:2,a:325,l:'A letter to the ward office',s:'a piece of work'},{k:'person',r:2,a:80,l:'A local educator',s:'mentor'}
+ ];
+ R.forEach((r,i)=>{el('circle',{class:'orbit',cx:C[0],cy:C[1],r},svg);const t=el('text',{class:'ring',x:C[0]+4,y:C[1]-r-6},svg);t.textContent=['every day','every week','when asked'][i];});
+ nodes.forEach(n=>{const a=n.a*Math.PI/180;n.x=C[0]+Math.cos(a)*R[n.r];n.y=C[1]+Math.sin(a)*R[n.r];});
+ // labels sit in two columns outside the rings, evenly spaced, joined by leaders
+ const left=nodes.filter(n=>n.x<C[0]).sort((a,b)=>a.y-b.y),right=nodes.filter(n=>n.x>=C[0]).sort((a,b)=>a.y-b.y);
+ const place=(arr,x,anchor)=>{const top=54,bot=H-56;const step=(bot-top)/Math.max(1,arr.length-1);arr.forEach((n,i)=>{n.lx=x;n.ly=top+i*step;n.anchor=anchor;});};
+ place(left,42,'start');place(right,W-42,'end');
+ el('circle',{class:'child',cx:C[0],cy:C[1],r:8},svg);const cl=el('text',{class:'child-lbl',x:C[0],y:C[1]+26,'text-anchor':'middle'},svg);cl.textContent='the child';
+ nodes.forEach((n,i)=>{const g=el('g',{class:'node',style:`transition-delay:${.2+i*.07}s`},svg);
+  const ex=n.anchor==='start'?n.lx+150:n.lx-150;const mid=n.anchor==='start'?Math.min(n.x-18,ex+20):Math.max(n.x+18,ex-20);
+  el('path',{class:'lead',d:`M${n.x} ${n.y}L${mid} ${n.ly}H${ex}`},g);
+  if(n.k==='person')el('circle',{class:'pin',cx:n.x,cy:n.y,r:5.5},g);else if(n.k==='place'){el('circle',{class:'place',cx:n.x,cy:n.y,r:11},g);el('circle',{class:'place',cx:n.x,cy:n.y,r:5},g);}
+  else if(n.k==='exp')el('rect',{class:'exp',x:n.x-5,y:n.y-5,width:10,height:10},g);else el('circle',{class:'tech',cx:n.x,cy:n.y,r:12},g);
+  const t=el('text',{x:n.lx,y:n.ly-2,'text-anchor':n.anchor},g);t.textContent=n.l;const s=el('text',{class:'k',x:n.lx,y:n.ly+11,'text-anchor':n.anchor},g);s.textContent=n.s;});
+ // key
+ const ky=H-14;[['person','people'],['place','places'],['exp','experiences'],['tech','infrastructure']].forEach(([k,l],i)=>{const x=C[0]-170+i*100;if(k==='person')el('circle',{class:'pin',cx:x,cy:ky-4,r:4},svg);else if(k==='place')el('circle',{class:'place',cx:x,cy:ky-4,r:5},svg);else if(k==='exp')el('rect',{class:'exp',x:x-4,y:ky-8,width:8,height:8},svg);else el('circle',{class:'tech',cx:x,cy:ky-4,r:5},svg);const t=el('text',{class:'k',x:x+12,y:ky},svg);t.textContent=l;});
+ new IntersectionObserver(e=>{if(e[0].isIntersecting)$('#cons').classList.add('in');},{threshold:.3}).observe(svg);
+ if(reduce)$('#cons').classList.add('in');
+})();
+
+/* ---------- Plate III: the week board ---------- */
+(function board(){
+ const host=$('#weekBoard');if(!host)return;
+ const SPINE=['Reading & writing','Mathematics','Science','Thinking','Making','The body','Other people'];
+ const STARTS=[
+  {age:'A child of nine',q:'Why did the lake change colour after the rain?',spine:{'Science':2,'Mathematics':2,'Reading & writing':2,'Thinking':1,'Other people':1,'The body':1},
+   days:[['Mon','q','The question is written down and taken seriously. What would we need to find out?','20 min'],['Tue','ex','A walk to the lake with two jars: one from the inlet, one from the middle. They settle differently overnight.','1 h'],['Wed','ex','An older photograph of the same lake. It was bigger. The question changes shape: what has happened here?','30 min'],['Thu','in','A map. The word catchment. What 1 : 25,000 means, taught directly because it is needed now. Then ten minutes of ratio practice.','25 min'],['Fri','wk','A page of writing: what the lake was, what it is, and one sentence about what should happen.','45 min'],['Sat','ck','Four questions on ratio, three days after the map. Then the note to the parents.','10 min']],
+   evid:['A work product: the page of writing','A short retrieval check on ratio, after a gap','What an adult observed on the walk'],
+   landed:'Ratio and scale move to developing. Next week keeps the thread: explain the catchment to someone who was not there, then one more short check to see whether it stays.',
+   not:'Ratio stays where it was. Next week adds no new content; it changes the setting: the same idea at the kitchen table with real jars and a measuring jug, ten minutes a day, then the check again.'},
+  {age:'A child of six',q:'Can we fix the radio that stopped working?',spine:{'Making':2,'Science':2,'Thinking':2,'Other people':2,'Reading & writing':1,'Mathematics':1},
+   days:[['Mon','q','The radio is opened on the table. What is inside? Everything gets a name, even the wrong one.','20 min'],['Tue','ex','A neighbour who repairs things shows how to test whether power is getting through.','40 min'],['Wed','in','What a circuit is, drawn and built with a battery, a bulb and two wires. Taught directly in fifteen minutes.','25 min'],['Thu','pr','Three more circuits, one deliberately broken. Find the break. Ten minutes.','10 min'],['Fri','wk','A labelled drawing of the inside of the radio, and a sentence about what was wrong.','30 min'],['Sat','ck','Two questions and one broken circuit to fix, four days later. Then the note to the parents.','10 min']],
+   evid:['A work product: the labelled drawing','A performance: finding the break in a circuit','What the neighbour noticed about persistence'],
+   landed:'Circuits are marked secure for now. Next week the question widens: what else in the house has a circuit? Reading comes in through the instruction leaflet, which is genuinely hard.',
+   not:'Circuits stay developing. Next week repeats the build with the child leading and the adult silent, because the check suggested the idea was borrowed rather than owned.'},
+  {age:'A child of ten',q:'Who is going to win the tournament?',spine:{'Mathematics':2,'Reading & writing':2,'Thinking':2,'The body':2,'Other people':1,'Science':1},
+   days:[['Mon','q','The question is turned into a real one: what would we need to know to predict it?','20 min'],['Tue','in','Averages, and why they mislead. Taught directly from last season\u2019s results. Fifteen minutes.','25 min'],['Wed','ex','A match at the ground. Counting one thing only, the whole game: shots that reached the goal.','2 h'],['Thu','pr','Ten minutes of percentages on the numbers collected. Then a second set from a different team.','15 min'],['Fri','wk','A one-page prediction with reasons, written to be read by someone who disagrees.','45 min'],['Sat','ck','Three questions on percentages, plus the actual result, plus what to change in the method. Then the note.','15 min']],
+   evid:['A work product: the prediction and its reasons','A retrieval check on percentages','The child\u2019s own reflection on the method'],
+   landed:'Percentages secure. Next week the writing takes the lead: the prediction becomes an argument, and the numbers become evidence inside it.',
+   not:'Percentages developing. Next week keeps the football and removes the writing load: the numbers go on a wall chart, ten minutes a day, and the check comes back on Wednesday, not Saturday.'}
+ ];
+ const KIND={q:'Question',ex:'Experience',in:'Direct teaching',pr:'Practice',wk:'Work',ck:'Check'};
+ const starts=$('#starts');let cur=0,landed=true;
+ STARTS.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked',String(i===0));b.innerHTML=`<small>${s.age}</small>${s.q}`;b.addEventListener('click',()=>set(i));starts.appendChild(b);});
+ const spine=$('#spine');SPINE.forEach(n=>{const s=document.createElement('span');s.textContent=n;spine.appendChild(s);});
+ function render(){const s=STARTS[cur];
+  host.innerHTML=s.days.map(([d,k,t,m],i)=>`<div class="day re" style="transition-delay:${i*70}ms"><div class="d">${d}</div><span class="kind ${k}">${KIND[k]}</span><p>${t}</p><div class="mins">${m}</div></div>`).join('');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>$$('.day',host).forEach(d=>d.classList.remove('re'))));
+  $$('span',spine).forEach(el=>{const v=s.spine[el.textContent]||0;el.classList.toggle('on',v>0);el.classList.toggle('deep',v>1);});
+  $('#evid').innerHTML=s.evid.map(e=>`<li>${e}</li>`).join('');
+  $('#adapt').textContent=landed?s.landed:s.not;
+  $$('button',starts).forEach((b,i)=>b.setAttribute('aria-checked',String(i===cur)));
+  $('#okLanded').setAttribute('aria-pressed',String(landed));$('#okNot').setAttribute('aria-pressed',String(!landed));}
+ function set(i){cur=i;render();}
+ $('#okLanded').addEventListener('click',()=>{landed=true;render();});$('#okNot').addEventListener('click',()=>{landed=false;render();});
+ render();
+})();
+
+/* ---------- Plate VII: a section through Cavia ---------- */
+(function strata(){
+ const svg=$('#strataSvg');if(!svg)return;const W=760,H=420;
+ const L=[
+  {n:'01 · Family life',nm:'Family life',fill:'#F4EFE4',head:'Where all the evidence comes from.',body:'A walk, a map, a page of writing, a buckle. Life is the surface layer and the only one the child needs to see.',list:['Projects, books, walks, mentors, conversations','Direct teaching and practice, in small doses','Nothing measured that does not serve the child']},
+  {n:'02 · The record',nm:'The learner record',fill:'#E2D9C5',head:'A state, not a profile.',body:'Knowledge, skills, strategies, motivation, agency and wellbeing, each with its evidence, its provenance and its confidence attached. It says how much it does not know.',list:['Direct evidence outweighs inference','Every claim keeps its source and date','Uncertainty is drawn, not hidden']},
+  {n:'03 · Sensing',nm:'Sensing models',fill:'#3A4E8F',head:'Advanced models that turn what a child does into evidence.',body:'Multimodal models read a page of writing, a photograph of a build, a recorded explanation, an adult\u2019s note, and propose what they show, with confidence and provenance attached. They do not decide.',list:['Text, image, speech and observation as inputs','Output is a proposal, marked as inference','Sensitive inferences kept apart from the record']},
+  {n:'04 · Generation',nm:'Generative models',fill:'#24356B',head:'Models that draft the next step for this child.',body:'Given the record, the context and the goal, generative models draft pathways, tasks and materials for one child, checked against the stable spine, and show their reasons.',list:['Pathways, tasks and materials, made for one child','Checked against the spine so curiosity never opens a gap','Reasons shown; options offered, not imposed']},
+  {n:'05 · Bedrock',nm:'Bedrock: safeguards and the adult',fill:'#1B1F1D',head:'Where the machine stops.',body:'Data minimisation, parental control of collection and deletion, no advertising, no diagnosis, human review of anything that matters. The adult decides. The system proposes.',list:['High-impact decisions belong to people','Optimised for learning and wellbeing, not time on screen','Children\u2019s profiles are never sold or advertised against']}
+ ];
+ const ys=[0,84,168,252,336,420];const wave=(y,amp,ph)=>{let d='';for(let x=0;x<=W;x+=20){const yy=y+Math.sin(x/95+ph)*amp;d+=(x?'L':'M')+x+' '+yy.toFixed(1);}return d;};
+ const tops=ys.map((y,i)=>i===0||i===5?null:wave(y,i%2?6:9,i*1.3));
+ const bands=L.map((l,i)=>{const g=el('g',{class:'band',tabindex:'0',role:'button','aria-label':l.nm},svg);
+  const top=i===0?'M0 0L760 0':tops[i];const bot=i===4?'M0 420L760 420':tops[i+1];
+  const botRev=bot.replace(/^M/,'L').split('L').filter(Boolean).reverse().map(s=>'L'+s).join('');
+  el('path',{class:'fill',d:top+botRev+'Z',fill:l.fill,stroke:'rgba(27,31,29,.18)','stroke-width':'.8'},g);
+  const yc=(ys[i]+ys[i+1])/2;const t1=el('text',{x:28,y:yc-4},g);t1.textContent=l.n.split(' · ')[0];const t2=el('text',{class:'nm',x:28,y:yc+16},g);t2.textContent=l.nm;
+  if(i>=2&&i<=3){t1.style.fill='rgba(244,239,228,.7)';t2.style.fill='var(--paper)';}if(i===4){t1.style.fill='rgba(244,239,228,.6)';t2.style.fill='var(--paper)';}
+  return g;});
+ // arrows: evidence goes down and comes back up as a proposal
+ el('path',{class:'core',d:'M560 12V408'},svg);el('path',{class:'core',d:'M600 408V12'},svg);
+ const a1=el('text',{x:552,y:26,'text-anchor':'end'},svg);a1.textContent='evidence ↓';a1.setAttribute('style','font-family:var(--mono);font-size:9px;letter-spacing:.08em;fill:var(--ink-3)');
+ const a2=el('text',{x:608,y:26},svg);a2.textContent='↑ proposal';a2.setAttribute('style','font-family:var(--mono);font-size:9px;letter-spacing:.08em;fill:var(--ink-3)');
+ function set(i){bands.forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('dim',j!==i);});const l=L[i];$('#stName').textContent=l.n;$('#stHead').textContent=l.head;$('#stBody').textContent=l.body;$('#stList').innerHTML=l.list.map(x=>`<li>${x}</li>`).join('');}
+ bands.forEach((b,i)=>{b.addEventListener('mouseenter',()=>set(i));b.addEventListener('click',()=>set(i));b.addEventListener('focus',()=>set(i));b.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();bands[(i+1)%5].focus();}if(e.key==='ArrowUp'){e.preventDefault();bands[(i+4)%5].focus();}});});
+ set(0);
+ let done=false;new IntersectionObserver(e=>{if(e[0].isIntersecting&&!done){done=true;if(reduce)return;let k=1;const iv=setInterval(()=>{set(k);k++;if(k>4)clearInterval(iv);},1100);}},{threshold:.5}).observe(svg);
+})();
+
+/* ---------- reveals ---------- */
+(function reveal(){
+ const items=$$('.rv');if(reduce){items.forEach(i=>i.classList.add('in'));return;}
+ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.05});
+ items.forEach(i=>io.observe(i));
+ window.__revealNow=()=>items.forEach(i=>{const r=i.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)i.classList.add('in');});
+})();
+
+/* ---------- routes, contents, header ---------- */
+(function nav(){
+ const pages=$$('.page'),routes=pages.map(p=>p.dataset.page);
+ const anchors={'how-it-works':'system','method':'model','circle':'community'};
+ const header=$('#header'),menu=$('#menu'),sheet=$('#sheet'),prog=$('#progress');
+ let current='cavia';
+ function route(){
+  const raw=(location.hash||'#cavia').slice(1);let page='cavia',anchor=null;
+  if(routes.includes(raw))page=raw;else{anchor=anchors[raw]||raw;if(!document.getElementById(anchor))anchor=null;}
+  const changed=page!==current;current=page;
+  pages.forEach(p=>p.classList.toggle('active',p.dataset.page===page));header.classList.toggle('sub',page!=='cavia');
+  $$('[data-route]').forEach(a=>a.setAttribute('aria-current',a.dataset.route===page?'page':'false'));
+  sheet.classList.remove('open');menu.setAttribute('aria-expanded','false');if(page!=='cavia')header.classList.remove('chapters');
+  if(anchor){const t=document.getElementById(anchor);requestAnimationFrame(()=>t.scrollIntoView({behavior:changed||reduce?'auto':'smooth',block:'start'}));}
+  else if(changed)window.scrollTo(0,0);
+  if(changed&&window.__revealNow)setTimeout(window.__revealNow,60);
+  document.title=page==='research'?'Research — Cavia Club':page==='autism'?'For autistic learners — Cavia Club':'Cavia Club — Learning begins with a life';
+ }
+ addEventListener('hashchange',route);route();
+ menu.addEventListener('click',()=>{const open=sheet.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
+ // the chapter strip: which chapter you are in, an indicator that slides to it, and the strip keeps it in view
+ const strip=$('#stripIn'),links=$$('#stripIn a'),ind=$('#ind'),ids=links.map(a=>a.getAttribute('href').slice(1));
+ function mark(i){links.forEach((a,j)=>a.classList.toggle('on',j===i));if(i<0){ind.classList.remove('on');return;}const a=links[i];ind.style.transform=`translateX(${a.offsetLeft}px)`;ind.style.width=a.offsetWidth+'px';ind.classList.add('on');
+  const target=a.offsetLeft-strip.clientWidth/2+a.offsetWidth/2;if(Math.abs(strip.scrollLeft-target)>8)strip.scrollTo({left:Math.max(0,target),behavior:reduce?'auto':'smooth'});}
+ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const i=ids.indexOf(e.target.id);if(i>=0)mark(i);});},{rootMargin:'-30% 0px -60% 0px',threshold:0});
+ ids.forEach(id=>{const s=document.getElementById(id);if(s)io.observe(s);});
+ const hero=$('.hero');if(hero)new IntersectionObserver(es=>{const inHero=es[0].isIntersecting;header.classList.toggle('chapters',!inHero&&current==='cavia');if(inHero)mark(-1);},{rootMargin:'-60px 0px 0px 0px',threshold:0}).observe(hero);
+ addEventListener('resize',()=>{const i=links.findIndex(a=>a.classList.contains('on'));if(i>=0)mark(i);});
+ let ticking=false;addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{header.classList.toggle('scrolled',scrollY>8);const d=document.documentElement;const p=scrollY/Math.max(1,d.scrollHeight-innerHeight);prog.style.width=(p*100).toFixed(2)+'%';ticking=false;});},{passive:true});
+})();
+
+/* ---------- the invitation form: shown back, never sent ---------- */
+(function form(){
+ const f=$('#form');if(!f)return;
+ f.addEventListener('submit',e=>{e.preventDefault();
+  const name=$('#fName').value.trim(),email=$('#fEmail').value.trim(),ok=$('#fOk').checked,msg=$('#formMsg');
+  if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.textContent='We need your name and a working email to write back.';msg.style.color='var(--terra)';(name?$('#fEmail'):$('#fName')).focus();return;}
+  if(!ok){msg.textContent='Please tick the box so we know you have read how this works.';msg.style.color='var(--terra)';$('#fOk').focus();return;}
+  const city=$('#fCity').value.trim(),age=$('#fAge').value,notice=$('#fNotice').value.trim();
+  $('#sentBack').textContent=`${name}${city?', in '+city:''}${age?', with a child who is '+age.toLowerCase():''}. ${notice?'You noticed: “'+notice+'”':'You did not write anything about your child yet; that is fine, we will ask.'} Nothing has been sent anywhere. When this site goes live, a member of the team will reply to ${email}.`;
+  f.classList.add('done');f.querySelector('.sent').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+ });
+})();
+})();
+</script>
+</body>
+</html>
